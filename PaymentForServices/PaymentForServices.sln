@@ -1,0 +1,66 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1703.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{F37D2B43-7670-4716-9654-7DE5EB33AEA3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{F6B192F1-09B0-4B95-9D80-B2F74587A593}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{21B722D0-247C-41B6-B3A4-100081EF9101}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MVC", "MVC", "{09FDC815-69FE-4104-B86C-D1735F8BC901}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Logic", "Business Logic", "{CA7FC6EE-DFA0-4F61-8B9B-EC9F21726A50}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentForServices.Models", "PaymentForServices.Models\PaymentForServices.Models.csproj", "{9959FF8B-D415-4D3C-9FB2-9049A9814044}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PAymentForServices.Service", "PAymentForServices.Service\PAymentForServices.Service.csproj", "{9EAC5421-0831-4534-A7F1-78B963379019}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PAymentForServices.Common", "PAymentForServices.Common\PAymentForServices.Common.csproj", "{79B9308C-3C80-456C-AB82-4D1698C378F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PAymentForServices.BusinessLogic", "PAymentForServices.BusinessLogic\PAymentForServices.BusinessLogic.csproj", "{A77494AB-C358-40FE-95C9-2B7EFBFC7888}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PAymentForServices.Web", "PAymentForServices.Web\PAymentForServices.Web.csproj", "{752FFCF1-5678-44B1-A20F-DF8C99F92EF1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9959FF8B-D415-4D3C-9FB2-9049A9814044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9959FF8B-D415-4D3C-9FB2-9049A9814044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9959FF8B-D415-4D3C-9FB2-9049A9814044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9959FF8B-D415-4D3C-9FB2-9049A9814044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EAC5421-0831-4534-A7F1-78B963379019}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EAC5421-0831-4534-A7F1-78B963379019}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EAC5421-0831-4534-A7F1-78B963379019}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EAC5421-0831-4534-A7F1-78B963379019}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79B9308C-3C80-456C-AB82-4D1698C378F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79B9308C-3C80-456C-AB82-4D1698C378F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79B9308C-3C80-456C-AB82-4D1698C378F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79B9308C-3C80-456C-AB82-4D1698C378F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A77494AB-C358-40FE-95C9-2B7EFBFC7888}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A77494AB-C358-40FE-95C9-2B7EFBFC7888}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A77494AB-C358-40FE-95C9-2B7EFBFC7888}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A77494AB-C358-40FE-95C9-2B7EFBFC7888}.Release|Any CPU.Build.0 = Release|Any CPU
+		{752FFCF1-5678-44B1-A20F-DF8C99F92EF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{752FFCF1-5678-44B1-A20F-DF8C99F92EF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{752FFCF1-5678-44B1-A20F-DF8C99F92EF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{752FFCF1-5678-44B1-A20F-DF8C99F92EF1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C12000C-35D3-4B0D-A3F5-AA06041BDB5C}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9959FF8B-D415-4D3C-9FB2-9049A9814044} = {F37D2B43-7670-4716-9654-7DE5EB33AEA3}
+		{9EAC5421-0831-4534-A7F1-78B963379019} = {21B722D0-247C-41B6-B3A4-100081EF9101}
+		{79B9308C-3C80-456C-AB82-4D1698C378F4} = {F6B192F1-09B0-4B95-9D80-B2F74587A593}
+		{A77494AB-C358-40FE-95C9-2B7EFBFC7888} = {CA7FC6EE-DFA0-4F61-8B9B-EC9F21726A50}
+		{752FFCF1-5678-44B1-A20F-DF8C99F92EF1} = {09FDC815-69FE-4104-B86C-D1735F8BC901}
+	EndGlobalSection
+EndGlobal
