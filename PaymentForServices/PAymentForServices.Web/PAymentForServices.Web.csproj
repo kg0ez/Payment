@@ -6,4 +6,34 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="wwwroot\img\" />
+    <Folder Include="wwwroot\img\whoweare\" />
+    <Folder Include="wwwroot\img\services\" />
+    <Folder Include="wwwroot\img\practice\" />
+    <Folder Include="wwwroot\img\mainblock\" />
+    <Folder Include="wwwroot\img\getintouch\" />
+    <Folder Include="wwwroot\img\footer\" />
+    <Folder Include="wwwroot\img\footer\icons\" />
+    <Folder Include="wwwroot\img\footer\social\" />
+    <Folder Include="wwwroot\img\clients\" />
+    <Folder Include="wwwroot\img\advantages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\img\" />
+    <Content Remove="wwwroot\img\whoweare\" />
+    <Content Remove="wwwroot\img\services\" />
+    <Content Remove="wwwroot\img\practice\" />
+    <Content Remove="wwwroot\img\mainblock\" />
+    <Content Remove="wwwroot\img\getintouch\" />
+    <Content Remove="wwwroot\img\footer\" />
+    <Content Remove="wwwroot\img\footer\icons\" />
+    <Content Remove="wwwroot\img\footer\social\" />
+    <Content Remove="wwwroot\img\clients\" />
+    <Content Remove="wwwroot\img\advantages\" />
+  </ItemGroup>
 </Project>

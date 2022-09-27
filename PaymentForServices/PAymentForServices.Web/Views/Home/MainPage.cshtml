@@ -1,0 +1,418 @@
+﻿<head>
+    <link rel="stylesheet" href="~/css/MainPage.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        @*<header class="header">
+            <div class="header__container _container">
+                <a class="header__logo" asp-controller="Home" asp-action="Index">
+                    Relvise
+                </a>
+                <nav class="header__menu menu">
+                    <ul class="menu__list">
+                        <li class="menu__item">
+                            <a class="menu__link" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="menu__item">
+                            <a class="menu__link" asp-controller="Home" asp-action="Privacy">Ticket</a>
+                        </li>
+                        <li class="menu__item">
+                            <a class="menu__link" asp-controller="Home" asp-action="NFT">NFT</a>
+                        </li>
+                        <li class="menu__item">
+                            <a class="menu__link">Contant</a>
+                        </li>
+                    </ul>
+                </nav>
+
+            </div>
+        </header>*@
+        <main class="page">
+            <div class="page__main-block main-block">
+                <div class="main-block__container _container">
+                    <div class="main-block__body">
+                        <div>
+                            <h1 class="main-block__title">Horizon - banking</h1>
+                            <div class="main-block__text">
+                               Совершайте безопасные финансовые переводы и оплаты услуг
+                            </div>
+                        </div>
+                        <div>
+                            <img class="main-body_img" src="~/img/mainblock/mainP.jpeg" alt="Финансы" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="page__services services">
+                <div class="services__container _container">
+                    <div class="services__body">
+                        <div class="servises__column">
+                            <div class="servises__item item-servise">
+                                <div class="item-servise__icon">
+                                    <img class="icon-first" src="~/img/services/01.svg" alt="Безопасные платежи" />
+                                </div>
+                                <h3 class="item-servise__title">Безопасные платежи и переводы</h3>
+                                <div class="item-servise__text">Мы позаботились о вашей безопасности</div>
+                            </div>
+                        </div>
+                        <div class="servises__column">
+                            <div class="servises__item item-servise">
+                                <div class="item-servise__icon">
+                                    <img class="icon-second" src="~/img/services/02.svg" alt="Контролируй свои финансы" />
+                                </div>
+                                <h3 class="item-servise__title">Контролируй свои финансы</h3>
+                                <div class="item-servise__text">Постоянный доступ к счетам (карта, вклад, кредит)</div>
+                            </div>
+                        </div>
+                        <div class="servises__column">
+                            <div class="servises__item item-servise">
+                                <div class="item-servise__icon">
+                                    <img class="icon-third" src="~/img/services/03_g.svg" alt="Консультации в сфере финансовых услуг" />
+                                </div>
+                                <h3 class="item-servise__title">Консультации в сфере финансовых услуг</h3>
+                            <div class="item-servise__text">Квалифицированные сотрудники помогут разобраться с трудностями</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="page__advantages advantages">
+                <div class="advantages__container _container">
+                    <div class="advantages__header header-block">
+                        <h2 class="header-block__title">Horizon-банкинг</h2>
+                        <div class="header-block__sub-title">
+                            Простая, удобная и безопасная система дистанционного банковского самообслуживания.<br/> Совершайте банковские операции не выходя из дома в режиме 24/7 в любой точке мира, где есть интернет.
+                        </div>
+                    </div>
+                    <div class="advantages__body">
+                        <div class="advantages__colum">
+                            <div class="advantages__item">
+                                <div class="advantages__icon">
+                                    <img src="~/img/advantages/01.svg" alt="Пользователей онлайн" />
+                                </div>
+                                <div class="advantages__value">972+</div>
+                                <div class="advantages__text">Пользователей онлайн</div>
+                            </div>
+                        </div>
+                        <div class="advantages__colum">
+                            <div class="advantages__item">
+                                <div class="advantages__icon">
+                                    <img src="~/img/advantages/02.svg" alt="Финансовые услуги" />
+                                </div>
+                                <div class="advantages__value">181+</div>
+                                <div class="advantages__text">Финансовые услуги</div>
+                            </div>
+                        </div>
+                        <div class="advantages__colum">
+                            <div class="advantages__item">
+                                <div class="advantages__icon">
+                                    <img src="~/img/advantages/03.svg" alt="Надёжность" />
+                                </div>
+                                <div class="advantages__value">100%</div>
+                                <div class="advantages__text">Надёжность</div>
+                            </div>
+                        </div>
+                        <div class="advantages__colum">
+                            <div class="advantages__item">
+                                <div class="advantages__icon">
+                                    <img src="~/img/advantages/04.svg" alt="Услуг" />
+                                </div>
+                                <div class="advantages__value">746+</div>
+                                <div class="advantages__text">Услуг</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="page__practice practice">
+                <div class="practice__container _container">
+                    <div class="practice__header header-block">
+                        <h2 class="header-block__title">Онлайн-сервисы</h2>
+                        <div class="header-block__sub-title">
+                            Из-за сложной эпидемиологической ситуации все больше людей стараются <br/>
+                            перейти на удаленную работу или вынуждены работать дома на самоизоляции. <br/>
+                            В такой ситуации предоставляем весь необходимый перечень услуг, которые можно совершить онлайн.
+                        </div>
+                    </div>
+                    <div class="practice__body">
+                        <div class="practice__column">
+                            <article class="practice__item item-practice">
+                                <div class="item-practice__content">
+                                    <a href="https://belarusbank.by/ru/fizicheskim_licam/31886/apple-pay" class="item-practice__link">
+                                        <h4 class="item-practice__title">Apple Pay</h4>
+                                    </a>
+                                    <div class="item-practice__text">Оплачивайте везде, где можно осуществить покупку по платежной карте с бесконтактной технологией оплаты. Сервис доступен для держателей карточек Mastercard и Visa Беларусбанка.</div>
+                                </div>
+                                <a href="https://belarusbank.by/ru/fizicheskim_licam/31886/apple-pay" class="item-practice__image _ibg">
+                                    <img src="~/img/practice/01.jpeg" alt="A single sourse of truth " />
+                                </a>
+                            </article>
+                        </div>
+                        <div class="practice__column">
+                            <article class="practice__item item-practice">
+                                <div class="item-practice__content">
+                                    <a href="https://payments.paysec.by/pay/c2c.cfm?Merchant_ID=621097" class="item-practice__link">
+                                        <h4 class="item-practice__title">Переводы с карты на карту</h4>
+                                    </a>
+                                    <div class="item-practice__text">Удобный и простой сервис для переводов денег с карты на карту любого банка Республики Беларусь. Переводите и получайте деньги за считанные минуты. </div>
+                                </div>
+                                <a href="https://payments.paysec.by/pay/c2c.cfm?Merchant_ID=621097" class="item-practice__image _ibg">
+                                    <img src="~/img/practice/02.jpeg" alt="A single sourse of truth " />
+                                </a>
+                            </article>
+                        </div>
+                        <div class="practice__column">
+                            <article class="practice__item item-practice">
+                                <div class="item-practice__content">
+                                    <a href="https://belarusbank.by/ru/fizicheskim_licam/31886/33720" class="item-practice__link">
+                                        <h4 class="item-practice__title">Плати, живи, играй – ONLINE</h4>
+                                    </a>
+                                    <div class="item-practice__text">Пополняйте аккаунты в социальных сетях и онлайн-играх любым удобным способом</div>
+                                </div>
+                                <a href="https://belarusbank.by/ru/fizicheskim_licam/31886/33720" class="item-practice__image _ibg">
+                                    <img src="~/img/practice/03.jpeg" alt="A single sourse of truth " />
+                                </a>
+                            </article>
+                        </div>
+                        <div class="practice__column">
+                            <article class="practice__item item-practice">
+                                <div class="item-practice__content">
+                                    <a href="https://belarusbank.by/ru/fizicheskim_licam/31886/sms-banking" class="item-practice__link">
+                                        <h4 class="item-practice__title">SMS-банкинг</h4>
+                                    </a>
+                                    <div class="item-practice__text">Проводите банковские операции в любое время и в любом месте, просто отправляя с мобильного телефона SMS-сообщения.</div>
+                                </div>
+                                <a href="https://belarusbank.by/ru/fizicheskim_licam/31886/sms-banking" class="item-practice__image _ibg">
+                                    <img src="~/img/practice/04.jpeg" alt="A single sourse of truth " />
+                                </a>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="page__whoweare whoweare">
+                <div class="whoweare__container _container ">
+                    <div class="whoweare__header header-block">
+                        <h2 class="header-block__title">Кто мы такие</h2>
+                        <div class="header-block__sub-title">
+                            Крупнейшее универсальное системообразующее финансово-кредитное учреждение <br/>
+                            Республики Беларусь предлагает все виды банковских услуг и продуктов.
+                        </div>
+                    </div>
+                    <div class="whoweare__body">
+                        <div class="whoweare__video">
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/wHXAlY_1SuE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                        <div class="whoweare__content">
+                            <div class="whoweare__top">
+                                <h2 class="whoweare__title">Самые надёжные в нашей области</h2>
+                                <div class="whoweare__text">Открытое акционерное общество «Сберегательный банк «Horizon» </div>
+                            </div>
+                            <div class="whoweare__items">
+                                <div class="whoweare__item item-whoweare">
+                                    <div class="item-whoweare__icon"><img src="~/img/whoweare/01.svg" /></div>
+                                    <div class="item-whoweare__body">
+                                        <div class="item-whoweare__title">Дружный коллектив</div>
+                                        <div class="item-whoweare__text">успех работы любого механизма зависит от гармоничного взаимодействия его элементов..</div>
+                                    </div>
+                                </div>
+                                <div class="whoweare__item item-whoweare">
+                                    <div class="item-whoweare__icon"><img src="~/img/whoweare/02.svg" /></div>
+                                    <div class="item-whoweare__body">
+                                        <div class="item-whoweare__title">
+                                            Конкурентная заработная плата
+                                        </div>
+                                        <div class="item-whoweare__text">Один из главных факторов, влияющих на уровень текучести персонала.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="page__clients clients">
+                <div class="clients__container _container">
+                    <div class="clients__items">
+                        <div class="clients_item">
+                            <img src="~/img/clients/02.jpg" alt="client" />
+                        </div>
+                        <div class="clients_item">
+                            <img src="~/img/clients/10.png" alt="client" />
+                        </div>
+                        <div class="clients_item">
+                            <img src="~/img/clients/07.png" alt="client" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="page__getintouch getintouch">
+                <div class="getintouch__container _container">
+                    <div class="getintouch__header header-block">
+                        <h2 class="header-block__title">Как связаться</h2>
+                        <div class="header-block__sub-title">
+                            Столкнулись с проблемой или хотите узнать, как использовать возможности Horizon-banking по максимуму? <br/> Вы можете обратиться к нашей команде поддержки, и наша команда поможет вам
+                        </div>
+                    </div>
+                    <div class="getintouch__items">
+
+                        <div class="getintouch__item item-getintouch">
+                            <div class="item-getintouch__icon icon-first">
+                                <img src="~/img/getintouch/01.svg" alt="getintouch" />
+                            </div>
+                            <div class="item-getintouch__emails">
+                                <div class="item-getintouch__text">
+                                    Кирилл Александрович
+                                </div>
+                                <a href="" class="item-getintouch__email">(80 33) 660-09-28</a>
+                            </div>
+                            <div class="item-getintouch__label">Связаться с поддержкой</div>
+                            <a href="" class="item-getintouch__button">
+                                <div class="button-text">Связаться</div>
+                            </a>
+                        </div>
+
+                        <div class="getintouch__item item-getintouch">
+                            <div class="item-getintouch__icon icon-second">
+                                <img src="~/img/getintouch/05.png" alt="getintouch" />
+                            </div>
+                            <div class="item-getintouch__emails">
+                                <div class="item-getintouch__text">
+                                    Юридический адрес
+                                </div>
+                                <a href="" class="item-getintouch__email">220089, г.Пинск, ул-а Советская, 39</a>
+                            </div>
+                            <div class="item-getintouch__label">Связаться с поддержкой</div>
+                            <a href="" class="item-getintouch__button">
+                                <div class="button-text">Связаться</div>
+                            </a>
+                        </div>
+                        <div class="getintouch__item item-getintouch">
+                            <div class="item-getintouch__icon icon-third">
+                                <img src="~/img/getintouch/03.svg" alt="getintouch" />
+                            </div>
+                            <div class="item-getintouch__emails">
+                                <div class="item-getintouch__text">
+                                    Email
+                                </div>
+                                <a href="mailto:gorboveckirill@gmail.com" class="item-getintouch__email">gorboveckirill@gmail.com</a>
+                            </div>
+                            <div class="item-getintouch__label">Связаться с поддержкой</div>
+                            <a href="" class="item-getintouch__button">
+                                <div class="button-text">Связаться</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="footer__top">
+                <div class="footer__main _container">
+                    <div class="footer_row">
+                        <div class="footer__column">
+                            <div class="footer__lable">Company Info</div>
+                            <nav class="footer__menu menu-footer">
+                                <ul class="menu-footer__list">
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">About us</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Carrier</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">We are hiring</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Blog</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="footer__column">
+                            <div class="footer__lable">Company Info</div>
+                            <nav class="footer__menu menu-footer">
+                                <ul class="menu-footer__list">
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">About us</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Carrier</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">We are hiring</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Blog</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="footer__column">
+                            <div class="footer__lable">Company Info</div>
+                            <nav class="footer__menu menu-footer">
+                                <ul class="menu-footer__list">
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">About us</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Carrier</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">We are hiring</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Blog</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="footer__column">
+                            <div class="footer__lable">Company Info</div>
+                            <nav class="footer__menu menu-footer">
+                                <ul class="menu-footer__list">
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">About us</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Carrier</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">We are hiring</a>
+                                    </li>
+                                    <li class="menu-footer__item">
+                                        <a href="" class="menu-footer__link">Blog</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="footer__column">
+                            <div class="footer__lable">Get in touch</div>
+                            <div class="footer__contacts contacts-footer">
+                                <a href="tel:80336600928" class="contacts-footer__item contacts-footer__item_phone">(8033)660-09-28</a>
+                                <a href="tel:80336600928" class="contacts-footer__item contacts-footer__item_place">Берёза</a>
+                                <a href="mailto:gorboveckirill@gmail.com" class="contacts-footer__item contacts-footer__item_email">gorboveckirill@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="foooter__bottom">
+                <div class="footer__container _container">
+                    <div class="footer__copu">Сделано с любовью</div>
+                    <div class="footer__social social">
+                        <a href="" class="social__item"><img src="~/img/footer/social/01.svg" /></a>
+                        <a href="https://www.instagram.com/polesskie.brodyagi/?next=https%3A%2F%2Fwww.instagram.com%2F%3F__coig_login%3D1" class="social__item"><img src="~/img/footer/social/02.svg" /></a>
+                        <a href="" class="social__item"><img src="~/img/footer/social/03.svg" /></a>
+                        <a href="https://www.youtube.com/channel/UCvNU4ws5i8U-vCuib6lNV0w" class="social__item"><img src="~/img/footer/social/04.svg" /></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+
+
