@@ -1,2 +1,53 @@
-﻿<div>kek</div>
+﻿@model PAymentForServices.Common.ModelsDto.LoginDto
+
+<head>
+    <link rel="stylesheet" href="~/css/Log_Reg.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="page__main-block main-block">
+            <div class="main-block__container _container">
+                <div class="main-block__body">
+                    <div>
+                        <h1 class="main-block__title" align="center">Вход в <br/> Horizon - banking</h1>
+
+                        <form class="main__form" asp-action="Login" asp-controller="Authorization">
+                            <div class="form__block">
+                                <label class="form__title" asp-for="UserLogin">Email/ Номер телефона</label><br />
+                                <input class="form__input-card" type="text" placeholder="Email/Номер телефона" asp-for="UserLogin" />
+                            </div>
+                            <div class="form__block">
+                                <label class="form__title" asp-for="Password">Пароль</label><br />
+                                <input class="form__input-card" type="password" asp-for="Password" />
+                            </div>
+                            <div class="form__block block-button">
+                                <input class="form__button-card" type="submit" value="Отправить" />
+                            </div>
+                        </form>
+                        <div class="form__title" align="center">или зайдите с помощью</div>
+                        <div class="main-block__continue">
+                            <div class="continue-item">
+                                <img class="main-block__img" src="~/img/LogReg/google.png" alt="Контролируй свои финансы" />
+                                <div class="main-block__text">Google</div>
+                            </div>
+                            <div class="continue-item">
+                                <div class="main-block__img"></div>
+                                <div class="main-block__text">Apple</div>
+                            </div>
+                        </div>
+                        <a asp-controller="Authorization" asp-action="Registration">
+                            <div class="main-link">Создать аккаунт на Horizon - banking</div>
+                        </a>
+                    </div>
+                    <div class="right-block__img" align="center">
+                        <img class="img-right" src="~/img/LogReg/log.jpg" alt="Финансы" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
 

@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="ModelsDto\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ModelsDto\" />
+  </ItemGroup>
 </Project>

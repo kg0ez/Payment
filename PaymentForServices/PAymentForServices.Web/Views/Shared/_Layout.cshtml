@@ -4,9 +4,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - PAymentForServices.Web</title>
+    <link rel="stylesheet" href="~/css/Layout.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     @*<link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />*@
-    <link rel="stylesheet" href="~/css/Layout.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/PAymentForServices.Web.styles.css" asp-append-version="true" />
 </head>
 <body>
@@ -33,6 +33,7 @@
                 <div class="header_button">
                     <a class="main-block__button button_signIn" asp-controller="Authorization" asp-action="Login">
                     <div class="button_signIn-text">Войти</div></a>
+
                     <a class="main-block__button button_signUp" asp-controller="Authorization" asp-action="Registration" >
                         <div class="button_signUp-text">Регистрация</div></a>
                 </div>

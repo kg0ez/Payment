@@ -24,6 +24,7 @@
     <Folder Include="wwwroot\img\clients\" />
     <Folder Include="wwwroot\img\advantages\" />
     <Folder Include="Views\Authorization\" />
+    <Folder Include="wwwroot\img\LogReg\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\img\" />
@@ -37,5 +38,11 @@
     <Content Remove="wwwroot\img\footer\social\" />
     <Content Remove="wwwroot\img\clients\" />
     <Content Remove="wwwroot\img\advantages\" />
+    <Content Remove="wwwroot\img\LogReg\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PAymentForServices.Common\PAymentForServices.Common.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
   </ItemGroup>
 </Project>
