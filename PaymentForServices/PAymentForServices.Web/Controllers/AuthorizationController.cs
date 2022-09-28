@@ -22,7 +22,22 @@ namespace PAymentForServices.Web.Controllers
         [HttpPost]
         public IActionResult Login(LoginDto login)
         {
-            return View();
+            if (ModelState.IsValid)
+            {
+
+            }
+            return View(login);
+        }
+
+        [HttpPost]
+        public IActionResult Registration(RegistrationDto registration)
+        {
+            if (ModelState.IsValid)
+            {
+
+            }
+
+            return View(registration);
         }
     }
 }
