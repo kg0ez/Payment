@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Models\" />
+    <None Remove="Views\Authorization\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -22,6 +23,7 @@
     <Folder Include="wwwroot\img\footer\social\" />
     <Folder Include="wwwroot\img\clients\" />
     <Folder Include="wwwroot\img\advantages\" />
+    <Folder Include="Views\Authorization\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\img\" />

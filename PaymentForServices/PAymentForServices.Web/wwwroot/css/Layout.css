@@ -1,0 +1,65 @@
+﻿.header_button {
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+
+@media(max-width:570) {
+    .header_button {
+        float: right;
+    }
+}
+
+.header_button:not(:last-child) {
+    padding: 0px 10px;
+}
+
+
+.main-block__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.2px;
+    text-align: center;
+    padding: 5px 36px;
+    margin: 10px 3px;
+}
+
+.button_signIn {
+    border-radius: 3px;
+    width: 90px;
+}
+.button_signIn:hover {
+    background-color: #0d5c63;
+    border-radius: 5px;
+}
+    .button_signIn:hover .button_signIn-text {
+        color: #fff;
+        font-weight: 800;
+    }
+
+.button_signIn-text {
+    color: #0d5c63;
+    font-weight: 600;
+}
+
+
+.button_signUp {
+    border-radius: 5px;
+    background-color: #0d5c63;
+    max-width: 130px;
+}
+
+    .button_signUp:hover {
+        background-color: #fff;
+        color: #fff;
+        font-weight: 600;
+    }
+
+        .button_signUp:hover .button_signUp-text {
+            color: #0d5c63;
+            font-weight: 800;
+        }
+.button_signUp-text {
+    color: #fff;
+    font-weight: 600;
+}
