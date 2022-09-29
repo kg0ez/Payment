@@ -11,7 +11,6 @@ namespace PaymentForServices.Models.Models
         public string LastName { get; set; } = null!;
         public string Partonymic { get; set; } = null!;
 
-        public int CreaditCardId { get; set; }
         public CreaditCard CreaditCard { get; set; }
 
         public List<HistoryPayment> HistoryPayments { get; set; }

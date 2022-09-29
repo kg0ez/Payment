@@ -30,14 +30,23 @@ namespace PAymentForServices.Web.Controllers
         }
 
         [HttpPost]
-        public IActionResult Registration(RegistrationDto registration)
+        public IActionResult Registration(Registration registration)
         {
             if (ModelState.IsValid)
             {
 
             }
-
             return View(registration);
+        }
+
+        [AcceptVerbs("Get", "Post")]
+        public IActionResult CheckEmail(string email)
+        {
+            if (email=="gorboveckirill@gmail.com")
+            {
+                return Json(false);
+            }
+            return Json(true);
         }
     }
 }

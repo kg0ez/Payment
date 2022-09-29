@@ -6,4 +6,26 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Services\" />
+    <None Remove="Services\Contracts\" />
+    <None Remove="Services\Implementations\" />
+    <None Remove="Helper\" />
+    <None Remove="Helper\Mapper\" />
+    <None Remove="AutoMapper" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="Services\Contracts\" />
+    <Folder Include="Services\Implementations\" />
+    <Folder Include="Helper\" />
+    <Folder Include="Helper\Mapper\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PAymentForServices.Common\PAymentForServices.Common.csproj" />
+    <ProjectReference Include="..\PaymentForServices.Models\PaymentForServices.Models.csproj" />
+  </ItemGroup>
 </Project>

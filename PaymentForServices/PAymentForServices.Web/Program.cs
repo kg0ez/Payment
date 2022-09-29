@@ -22,7 +22,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Service}/{action=Payment}/{id?}");
+    pattern: "{controller=Home}/{action=MainPage}/{id?}");
 
 app.Run();
 
