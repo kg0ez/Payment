@@ -1,0 +1,13 @@
+﻿using System;
+namespace PaymentForServices.Models.Models
+{
+    public class Service
+    {
+        public int Id { get; set; }
+
+        public string Name { get; set; } = null!;
+
+        public List<Category> Categories { get; set; }
+    }
+}
+

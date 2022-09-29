@@ -9,6 +9,7 @@
   <ItemGroup>
     <None Remove="Models\" />
     <None Remove="Views\Authorization\" />
+    <None Remove="Views\Service\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -25,6 +26,8 @@
     <Folder Include="wwwroot\img\advantages\" />
     <Folder Include="Views\Authorization\" />
     <Folder Include="wwwroot\img\LogReg\" />
+    <Folder Include="Views\Service\" />
+    <Folder Include="wwwroot\img\Payment\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\img\" />
@@ -39,6 +42,7 @@
     <Content Remove="wwwroot\img\clients\" />
     <Content Remove="wwwroot\img\advantages\" />
     <Content Remove="wwwroot\img\LogReg\" />
+    <Content Remove="wwwroot\img\Payment\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PAymentForServices.Common\PAymentForServices.Common.csproj">
