@@ -1,15 +1,15 @@
 ﻿using System;
 using AutoMapper;
-using PaymentForServices.Models.Models;
 using PAymentForServices.Common.ModelsDto;
+using PAymentForServices.Web.Models;
 
-namespace PAymentForServices.BusinessLogic.Helper.Mapper
+namespace PAymentForServices.Web.Mapper
 {
     public class MappingProfile:Profile
     {
         public MappingProfile()
         {
-            CreateMap<User, RegistrationDto>().ReverseMap();
+            CreateMap<Registration, RegistrationDto>().ReverseMap();
         }
     }
 }

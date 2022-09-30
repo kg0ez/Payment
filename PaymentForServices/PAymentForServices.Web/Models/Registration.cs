@@ -22,10 +22,11 @@ namespace PAymentForServices.Web.Models
         [Required(ErrorMessage = "Поле должно быть установлено")]
         [StringLength(35, MinimumLength = 10, ErrorMessage = "Длина строки должна быть от 10 до 35 символов")]
         [Remote(action: "CheckEmail", controller: "Authorization", ErrorMessage = "Email уже используется")]
-        public string Emain { get; set; }
+        public string Email { get; set; }
 
         [Required(ErrorMessage = "Поле должно быть установлено")]
         [StringLength(15, MinimumLength = 13, ErrorMessage = "Длина строки должна быть от 13 до 15 символов")]
+        [Remote(action: "CheckPhone", controller: "Authorization", ErrorMessage = "Телефон уже используется")]
         public string Phone { get; set; }
 
         [DataType(DataType.Password)]

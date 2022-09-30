@@ -11,6 +11,10 @@
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Microsoft.Extensions.DependencyInjection" />
     <None Remove="Microsoft.EntityFrameworkCore" />
+    <None Remove="Handler\" />
+    <None Remove="Services\" />
+    <None Remove="Services\Contracts\" />
+    <None Remove="Services\Implementations\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.9">
@@ -23,5 +27,11 @@
   <ItemGroup>
     <ProjectReference Include="..\PAymentForServices.Common\PAymentForServices.Common.csproj" />
     <ProjectReference Include="..\PAymentForServices.BusinessLogic\PAymentForServices.BusinessLogic.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Handler\" />
+    <Folder Include="Services\" />
+    <Folder Include="Services\Contracts\" />
+    <Folder Include="Services\Implementations\" />
   </ItemGroup>
 </Project>

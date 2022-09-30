@@ -1,7 +1,13 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using PAymentForServices.BusinessLogic.Services;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.AddTransient<IJsonService, JsonService>();
 
 var app = builder.Build();
 

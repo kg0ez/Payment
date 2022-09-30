@@ -3,11 +3,12 @@ using PAymentForServices.Common.Enums;
 
 namespace PAymentForServices.Common.Server
 {
-    public class ServerQuery<T>
+    [Serializable]
+    public class ServerQuery
     {
         public QueryUserType Type { get; set; }
 
-        public T Object { get; set; }
+        public string Object { get; set; }
     }
 }
 
