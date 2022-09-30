@@ -1,4 +1,4 @@
-﻿@model PAymentForServices.Common.ModelsDto.LoginDto
+﻿@model PAymentForServices.Web.Models.Login
 
 <head>
     <link rel="stylesheet" href="~/css/Log_Reg.css" asp-append-version="true" />
@@ -18,19 +18,19 @@
                             <div class="form__block">
                                 <label class="form__title" asp-for="UserLogin">Email/ Номер телефона</label><br />
                                 <input class="form__input-card" type="text" placeholder="Email/Номер телефона" asp-for="UserLogin" />
-                                @Html.ValidationMessageFor(model => model.UserLogin)
-
+                                <span asp-validation-for="UserLogin" />
                             </div>
                             <div class="form__block">
                                 <label class="form__title" asp-for="Password">Пароль</label><br />
                                 <input class="form__input-card" type="password" asp-for="Password" />
-                                @Html.ValidationMessageFor(model => model.Password)
-
+                                <span asp-validation-for="Password" />
                             </div>
+                            <div align="center" asp-validation-summary="ModelOnly"></div>
                             <div class="form__block block-button">
                                 <input class="form__button-card" type="submit" value="Отправить" />
                             </div>
                         </form>
+
                         <div class="form__title" align="center">или зайдите с помощью</div>
                         <div class="main-block__continue">
                             <div class="continue-item">
@@ -58,3 +58,10 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.17.0/jquery.validate.min.js"></script>
 <script src="https://ajax.aspnetcdn.com/ajax/jquery.validation.unobtrusive/3.2.10/jquery.validate.unobtrusive.min.js"></script>
 
+@*<div class="editor-label">
+        @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>*@

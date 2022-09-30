@@ -18,32 +18,58 @@ namespace PAymentForServices.Web.Controllers
 {
     public class AuthorizationController : Controller
     {
-        private readonly IJsonService _jsonService;
         private readonly IMapper _mapper;
 
-        public AuthorizationController(IJsonService jsonService, IMapper mapper)
+        public AuthorizationController(IMapper mapper)
         {
-            _jsonService = jsonService;
             _mapper = mapper;
         }
 
-        public IActionResult Registration()
-        {
-            return View();
-        }
         public IActionResult Login()
         {
             return View();
         }
 
         [HttpPost]
-        public IActionResult Login(LoginDto login)
+        public IActionResult Login(Login login)
         {
             if (ModelState.IsValid)
             {
+                var loginDto = _mapper.Map<LoginDto>(login);
+
+                string json = QueryHandler<LoginDto>.Serialize(loginDto, QueryUserType.GetAccount);
+
+                string answer = NetworkHandler.Client(json);
+
+                var exist = JsonSerializer.Deserialize<bool>(answer);
+
+                if (exist)
+                    return RedirectPermanent("~/Service/Services");
+
+                ModelState.AddModelError("", "Неверный пароль");
+                return View(login);
 
             }
             return View(login);
+        }
+
+        [AcceptVerbs("Get", "Post")]
+        public IActionResult CheckLogin(string UserLogin)
+        {
+            string json = QueryHandler<string>.Serialize(UserLogin, QueryUserType.GetLogin);
+
+            string answer = NetworkHandler.Client(json);
+
+            var exist = JsonSerializer.Deserialize<bool>(answer);
+
+            if (!exist)
+                return Json(false);
+            return Json(true);
+        }
+
+        public IActionResult Registration()
+        {
+            return View();
         }
 
         [HttpPost]
@@ -68,7 +94,7 @@ namespace PAymentForServices.Web.Controllers
         [AcceptVerbs("Get", "Post")]
         public IActionResult CheckEmail(string Email)
         {
-            string json = QueryHandler<string>.Serialize(Email, QueryUserType.GetEmail);
+            string json = QueryHandler<string>.Serialize(Email, QueryUserType.EmailExist);
 
             string answer = NetworkHandler.Client(json);
 
@@ -82,7 +108,7 @@ namespace PAymentForServices.Web.Controllers
         [AcceptVerbs("Get", "Post")]
         public IActionResult CheckPhone(string Phone)
         {
-            string json = QueryHandler<string>.Serialize(Phone, QueryUserType.GetPhone);
+            string json = QueryHandler<string>.Serialize(Phone, QueryUserType.PhoneExist);
 
             string answer = NetworkHandler.Client(json);
 

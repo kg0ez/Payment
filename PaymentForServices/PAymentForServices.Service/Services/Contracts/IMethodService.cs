@@ -6,6 +6,8 @@ namespace PAymentForServices.Service.Services
         string ExistPhone(string json);
         string ExistEmail(string json);
         string CreatAccount(string json);
+        string ExistAccount(string json);
+        string ExistLogin(string json);
     }
 }
 

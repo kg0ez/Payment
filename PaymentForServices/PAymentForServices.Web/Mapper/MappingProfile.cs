@@ -10,6 +10,7 @@ namespace PAymentForServices.Web.Mapper
         public MappingProfile()
         {
             CreateMap<Registration, RegistrationDto>().ReverseMap();
+            CreateMap<Login, LoginDto>().ReverseMap();
         }
     }
 }

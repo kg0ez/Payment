@@ -7,8 +7,6 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-builder.Services.AddTransient<IJsonService, JsonService>();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

@@ -17,12 +17,12 @@ namespace PAymentForServices.BusinessLogic.Services
             _mapper = mapper;
         }
 
-        public bool GetEmail(string email)
+        public bool EmailExist(string email)
         {
             return _context.Users.Any(u => u.Email == email);
         }
 
-        public bool GetPhone(string phone)
+        public bool PhoneExist(string phone)
         {
             return _context.Users.Any(u => u.Phone == phone);
         }
@@ -59,6 +59,19 @@ namespace PAymentForServices.BusinessLogic.Services
         private bool Save()
         {
             return _context.SaveChanges() > 0 ? true : false;
+        }
+
+        public bool Get(LoginDto login)
+        {
+            return _context.Users
+                .Any(u => (u.Email == login.UserLogin || u.Phone == login.UserLogin)
+                && u.Password == login.Password);
+        }
+
+        public bool LoginExist(string login)
+        {
+            return _context.Users
+                .Any(u => u.Email == login || u.Phone == login);
         }
     }
 }

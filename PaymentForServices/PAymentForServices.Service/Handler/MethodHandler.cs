@@ -12,11 +12,11 @@ namespace PAymentForServices.Service.Handler
     {
         public static string SearchMethod(ServerQuery query, IMethodService methodService)
         {
-            if (query.Type == QueryUserType.GetPhone)
+            if (query.Type == QueryUserType.PhoneExist)
             {
                 return methodService.ExistPhone(query.Object);
             }
-            else if (query.Type == QueryUserType.GetEmail)
+            else if (query.Type == QueryUserType.EmailExist)
             {
                 return methodService.ExistEmail(query.Object);
             }
@@ -24,7 +24,14 @@ namespace PAymentForServices.Service.Handler
             {
                 return methodService.CreatAccount(query.Object);
             }
-
+            else if (query.Type == QueryUserType.GetLogin)
+            {
+                return methodService.ExistLogin(query.Object);
+            }
+            else if (query.Type == QueryUserType.GetAccount)
+            {
+                return methodService.ExistAccount(query.Object);
+            }
             return "Not found";
         }
     }

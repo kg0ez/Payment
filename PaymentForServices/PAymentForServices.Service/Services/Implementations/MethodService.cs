@@ -21,7 +21,7 @@ namespace PAymentForServices.Service.Services
         {
             var email = JsonSerializer.Deserialize<string>(json);
 
-            var exist = _accountService.GetEmail(email);
+            var exist = _accountService.EmailExist(email);
 
             var response = JsonSerializer.Serialize<bool>(exist);
 
@@ -32,7 +32,7 @@ namespace PAymentForServices.Service.Services
         {
             var phone = JsonSerializer.Deserialize<string>(json);
 
-            var exist = _accountService.GetPhone(phone);
+            var exist = _accountService.PhoneExist(phone);
 
             var response = JsonSerializer.Serialize<bool>(exist);
 
@@ -46,6 +46,28 @@ namespace PAymentForServices.Service.Services
             var isCreated = _accountService.Sync(registrationDto);
 
             var response = JsonSerializer.Serialize<bool>(isCreated);
+
+            return response;
+        }
+
+        public string ExistAccount(string json)
+        {
+            var loginDto = JsonSerializer.Deserialize<LoginDto>(json);
+
+            var exist = _accountService.Get(loginDto);
+
+            var response = JsonSerializer.Serialize<bool>(exist);
+
+            return response;
+        }
+
+        public string ExistLogin(string json)
+        {
+            var login = JsonSerializer.Deserialize<string>(json);
+
+            var exist = _accountService.LoginExist(login);
+
+            var response = JsonSerializer.Serialize<bool>(exist);
 
             return response;
         }
