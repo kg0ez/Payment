@@ -8,6 +8,9 @@ namespace PAymentForServices.Service.Services
         string CreatAccount(string json);
         string ExistAccount(string json);
         string ExistLogin(string json);
+
+        string GetServices();
+        string GetCategories(string json);
     }
 }
 

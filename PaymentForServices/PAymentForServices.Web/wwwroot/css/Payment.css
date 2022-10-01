@@ -62,12 +62,14 @@ html, body {
 
 .main-block__container {
 }
-
+.main-block__body-left {
+    width:70%;
+}
 .main-block__body {
     padding: 50px 0px 191px 0px;
     position: relative;
     z-index: 2;
-    flex: 0 1 50%;
+    /*    flex: 0 1 50%;*/
     display: flex;
 }
 
@@ -128,6 +130,9 @@ html, body {
 .main-block__form-img {
     width:10%;
 }
+.main-block__form-payment_img {
+    width:10%;
+}
 .main-block__form {
     padding-bottom:10px;
     
@@ -138,6 +143,9 @@ html, body {
     }
     .main-block__form:hover .main-block__form-img {
         content: url(/img/Payment/Folder2.png)
+    }
+    .main-block__form:hover .main-block__form-payment_img {
+        content: url(/img/Payment/money2.png)
     }
 
 .form__input {

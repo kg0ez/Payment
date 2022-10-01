@@ -1,4 +1,6 @@
-﻿@model List<string>
+﻿@using PAymentForServices.Common.ModelsDto
+@model List<TypeService>
+
 <head>
     <link rel="stylesheet" href="~/css/Payment.css" asp-append-version="true" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,26 +12,30 @@
         <div class="page__main-block main-block">
             <div class="main-block__container _container">
                 <div class="main-block__body">
-                    <div>
+                    <div class="main-block__body-left">
                         <h1 class="main-block__title">Платежи ЕРИП</h1>
                         @foreach (var service in Model)
                         {
-                            <form class="main-block__form" asp-action="Services" asp-controller="Service">
-                                <img class="main-block__form-img" src="~/img/Payment/Folder.png" alt="folder" />
-                                <input class="main-block__form-submit" type="submit" value="@service" />
-                                <input name="service" value="@service" hidden="hidden" />
-                            </form>
+                            {
+                                if (service.NameImg == "Folder.png")
+                                {
+                                    <form class="main-block__form" asp-action="Services" asp-controller="Service">
+                                        <img class="main-block__form-img" src="~/img/Payment/Folder.png" alt="folder" />
+                                        <input class="main-block__form-submit" type="submit" value="@service.Name" />
+                                        <input name="Id" value="@service.Id" hidden="hidden" />
+                                    </form>
+                                }
+                                else
+                                {
+                                    <form class="main-block__form" asp-action="Category" asp-controller="Service">
+                                        <img class="main-block__form-payment_img" src="~/img/Payment/money.png" alt="money" />
+                                        <input class="main-block__form-submit" type="submit" value="@service.Name" />
+                                        <input name="category" value="@service.Name" hidden="hidden" />
+                                    </form>
+                                }
+                            }
+
                         }
-                        @*<form class="main-block__form" asp-action="Services" asp-controller="Service">
-                            <img class="main-block__form-img" src="~/img/Payment/Folder.png" alt="folder" />
-                            <input class="main-block__form-submit" type="submit" value="Билеты, лотереи" />
-                            <input name="service" value="Билеты, лотереи" hidden="hidden" />
-                        </form>
-                        <form class="main-block__form" asp-action="Services" asp-controller="Service">
-                            <img class="main-block__form-img" src="~/img/Payment/Folder.png" alt="folder" />
-                            <input class="main-block__form-submit" type="submit" value="Финансовые услуги" />
-                            <input name="service" value="Финансовые услуги" hidden="hidden" />
-                        </form>*@
                     </div>
                     <div>
                         <img class="main-body_img" src="~/img/mainblock/mainP.jpeg" alt="Финансы" />

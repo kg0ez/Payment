@@ -32,6 +32,14 @@ namespace PAymentForServices.Service.Handler
             {
                 return methodService.ExistAccount(query.Object);
             }
+            else if (query.Type == QueryUserType.GetServices)
+            {
+                return methodService.GetServices();
+            }
+            else if (query.Type == QueryUserType.GetCategoris)
+            {
+                return methodService.GetCategories(query.Object);
+            }
             return "Not found";
         }
     }

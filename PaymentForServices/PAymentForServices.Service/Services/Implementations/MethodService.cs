@@ -8,13 +8,15 @@ namespace PAymentForServices.Service.Services
 {
     public class MethodService: IMethodService
     {
-        private static IMapper _mapper;
-        private static IAccountService _accountService;
+        private readonly IMapper _mapper;
+        private readonly IAccountService _accountService;
+        private readonly ICategoryService _categoryService;
 
-        public MethodService(IMapper mapper,IAccountService accountService)
+        public MethodService(IMapper mapper,IAccountService accountService, ICategoryService categoryService)
         {
             _mapper = mapper;
             _accountService = accountService;
+            _categoryService = categoryService;
         }
 
         public string ExistEmail(string json)
@@ -68,6 +70,26 @@ namespace PAymentForServices.Service.Services
             var exist = _accountService.LoginExist(login);
 
             var response = JsonSerializer.Serialize<bool>(exist);
+
+            return response;
+        }
+
+        public string GetServices()
+        {
+            var services = _categoryService.GetServices();
+
+            var response = JsonSerializer.Serialize<List<ServiceDto>>(services);
+
+            return response;
+        }
+
+        public string GetCategories(string json)
+        {
+            var id = JsonSerializer.Deserialize<int>(json);
+
+            var services = _categoryService.GetCategories(id);
+
+            var response = JsonSerializer.Serialize<List<CategoryDto>>(services);
 
             return response;
         }

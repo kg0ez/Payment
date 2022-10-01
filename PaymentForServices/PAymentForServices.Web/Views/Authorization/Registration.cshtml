@@ -17,7 +17,7 @@
 
                         <form method="post" class="main__form" asp-action="Registration" asp-controller="Authorization">
                             <div class="form__block from__two-card">
-                                <div>
+                                <div class="form-card">
                                     <label class="form__title" asp-for="LastName">Фамилия</label><br />
                                     <input class="form__input-card" type="text" placeholder="Фамилия" asp-for="LastName" />
                                     @*@Html.ValidationMessageFor(model => model.LastName)*@
@@ -61,7 +61,7 @@
                                     <span asp-validation-for="Password" />
 
                                 </div>
-                                <div>
+                                <div class="form-card">
                                     <label class="form__title" asp-for="PasswordConfirm">Подтвердите</label><br />
                                     <input class="form__input-card" type="password" asp-for="PasswordConfirm" />
                                     @*@Html.ValidationMessageFor(model => model.PasswordConfirm)*@

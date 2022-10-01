@@ -11,6 +11,11 @@ namespace PAymentForServices.Web.Mapper
         {
             CreateMap<Registration, RegistrationDto>().ReverseMap();
             CreateMap<Login, LoginDto>().ReverseMap();
+            CreateMap<ServiceDto, TypeService>()
+                .ForMember("NameImg", opt => opt.MapFrom(opt => "Folder.png"));
+            CreateMap<CategoryDto, TypeService>()
+                .ForMember("NameImg", opt => opt.MapFrom(opt => "money.png"));
+
         }
     }
 }

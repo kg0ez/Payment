@@ -10,6 +10,8 @@ namespace PAymentForServices.BusinessLogic.Helper.Mapper
         public MappingProfile()
         {
             CreateMap<User, RegistrationDto>().ReverseMap();
+            CreateMap<Category, CategoryDto>().ReverseMap();
+            CreateMap<Service, ServiceDto>().ReverseMap();
         }
     }
 }

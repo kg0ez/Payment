@@ -186,11 +186,11 @@ html, body {
     display:flex;
     justify-content: center;
 }
-.form-card:not(:last-child) {
-    padding-right:30px;
+.form-card {
+    width:50%;
 }
 .form__input-card {
-    width: 100%;
+    width: 95%;
     height: 35px;
     align-content: center;
     justify-content: center;
@@ -204,6 +204,7 @@ html, body {
         color: #000;
         font-weight: 700;
         font-size: 18px;
+        width:100%;
     }
 
 .form__block {
@@ -235,7 +236,7 @@ html, body {
 }
 .form__button-card {
     background-color: #0d5c63;
-    width: 100%;
+    width: 95%;
     height: 50px;
     color: #fff;
     font-size: 18px;
@@ -282,5 +283,8 @@ html, body {
     padding: 0px 100px;
 }
 .img-right {
-    max-height: 700px;
+    max-height: 450px;
+}
+.main-block__body-left {
+    width: 60%;
 }

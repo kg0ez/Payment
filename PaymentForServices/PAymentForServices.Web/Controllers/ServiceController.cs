@@ -1,34 +1,61 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using PaymentForServices.Models.Models;
+using PAymentForServices.Common.Enums;
 using PAymentForServices.Common.ModelsDto;
-
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using PAymentForServices.Web.Handler;
+using PAymentForServices.Web.Models;
 
 namespace PAymentForServices.Web.Controllers
 {
     public class ServiceController : Controller
     {
-        List<string> services = new List<string>
+        private readonly IMapper _mapper;
+
+        public ServiceController(IMapper mapper)
         {
-            "Билеты, лотереи",
-            "Финансовые услуги",
-        };
+            _mapper = mapper;
+        }
+
         PaymentDto payment = new PaymentDto { Name = "Кирилл", LastName = "Бовбель", NameService= "ЖД билеты" }; 
+
         public IActionResult Services()
         {
-            return View(services);
+            string json = QueryHandler<string>.Serialize("", QueryUserType.GetServices);
+
+            string answer = NetworkHandler.Client(json);
+
+            var services = JsonSerializer.Deserialize<List<ServiceDto>>(answer);
+
+            var typeServices = _mapper.Map<List<TypeService>>(services);
+
+            return View(typeServices);
         }
 
         [HttpPost]
-        public IActionResult Services(string service)
+        public IActionResult Services(int Id)
+        {
+            string json = QueryHandler<int>.Serialize(Id, QueryUserType.GetCategoris);
+
+            string answer = NetworkHandler.Client(json);
+
+            var categories = JsonSerializer.Deserialize<List<CategoryDto>>(answer);
+
+            var typeServices = _mapper.Map<List<TypeService>>(categories);
+
+            return View(typeServices);
+        }
+        [HttpPost]
+        public IActionResult Category(string category)
         {
             return View();
         }
-
-        public IActionResult Payment()
+            public IActionResult Payment()
         {
             return View(payment);
         }

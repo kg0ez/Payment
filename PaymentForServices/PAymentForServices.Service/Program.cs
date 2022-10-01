@@ -22,13 +22,16 @@ var serviceProvider = new ServiceCollection()
             .AddSingleton<IAccountService, AccountService>()
             .AddSingleton<ApplicationContext, ApplicationContext>()
             .AddSingleton<IMethodService, MethodService>()
+            .AddSingleton<ICategoryService, CategoryService>()
             .AddSingleton(mapper)
             .BuildServiceProvider();    
 
 var accountService = serviceProvider.GetService<IAccountService>();
 var methodService = serviceProvider.GetService<IMethodService>();
+var categoryService = serviceProvider.GetService<ICategoryService>();
 
 //accountService.Sync();
+//categoryService.Sync();
 
 TcpListener listener = null;
 

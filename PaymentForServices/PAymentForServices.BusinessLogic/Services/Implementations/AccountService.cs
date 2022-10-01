@@ -51,7 +51,9 @@ namespace PAymentForServices.BusinessLogic.Services
         public bool Sync(RegistrationDto registrationDto)
         {
             var user = _mapper.Map<User>(registrationDto);
+
             _context.Users.Add(user);
+
             return Save();
 
         }
