@@ -20,21 +20,33 @@
                     </button>
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                         @*<ul class="navbar-nav flex-grow-1">
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                            </li>
-                        </ul>*@
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                </li>
+            </ul>*@
+
                     </div>
+                    
                 </div>
+                <div class="header_button">
+                    <a class="main-block__button button_signIn" asp-controller="Home" asp-action="HistoryPaymentPage">
+                        <div class="button_signIn-text">История</div>
+                    </a>
+                    <a class="main-block__button button_signIn" asp-controller="Service" asp-action="Services">
+                        <div class="button_signIn-text">Платежи</div>
+                    </a>
+                </div>
+                
                 <div class="header_button">
                     <a class="main-block__button button_signIn" asp-controller="Authorization" asp-action="Login">
                     <div class="button_signIn-text">Войти</div></a>
 
                     <a class="main-block__button button_signUp" asp-controller="Authorization" asp-action="Registration" >
                         <div class="button_signUp-text">Регистрация</div></a>
+                    
                 </div>
             </div>
         </nav>

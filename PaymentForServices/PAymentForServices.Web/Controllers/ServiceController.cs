@@ -65,7 +65,7 @@ namespace PAymentForServices.Web.Controllers
                 NameService = nameCategory,
                 Name = user.Name,
                 LastName = user.LastName,
-                Partonymic = user.Partonymic
+                Partonymic = user.Partonymic,
             };
             return View(payment);
         }
@@ -86,7 +86,8 @@ namespace PAymentForServices.Web.Controllers
             {
                 CategoryId = categoryId,
                 UserId = Models.User.Id,
-                PaymentAmount = payment.PaymentAmount
+                PaymentAmount = payment.PaymentAmount,
+                CodeTransaction = payment.CodeTransaction
             };
 
             json = QueryHandler<HistoryPaymentDto>.Serialize(history, QueryUserType.SyncHistoryPayment);

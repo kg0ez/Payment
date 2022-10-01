@@ -1,0 +1,38 @@
+﻿@using PAymentForServices.Common.ModelsDto
+
+@model List<HistoryPaymentDto>
+
+<head>
+    <link rel="stylesheet" href="~/css/History.css" asp-append-version="true" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="page__main-block main-block">
+            <div align="center" class="main-block__container _container">
+                    <h1 class="main-block__title"  align="center">История платежей</h1>
+                @foreach (var history in Model)
+                {
+                    <div class="main-block__body">
+                        <div align="left" class="form__title title-under">@history.User.LastName @history.User.Name @history.User.Partonymic</div>
+                        <div class="title-couple">
+                            <div align="left" class="form__subtitle">Наименование услуги: </div>
+                            <div align="left" class="form__title"> @history.Category.Name</div>
+                        </div>
+                        <div class="title-couple">
+                            <div align="left" class="form__subtitle">Код оплаты: </div>
+                            <div align="left" class="form__title"> @history.CodeTransaction</div>
+                        </div>
+                        <div class="title-couple">
+                            <div align="left" class="form__subtitle">Сумма к оплате: </div>
+                            <div align="left" class="form__title"> @history.PaymentAmount руб</div>
+                        </div>
+                        <div class="form__title title-time" align="right">@history.CreatAt</div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</body>

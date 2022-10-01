@@ -21,7 +21,7 @@ namespace PAymentForServices.Web.Models
 
         [Required(ErrorMessage = "Поле должно быть установлено")]
         [StringLength(15, MinimumLength = 5, ErrorMessage = "Длина строки должна быть от 2 до 15 символов")]
-        public string CodeService { get; set; }
+        public string CodeTransaction { get; set; }
 
         [Required(ErrorMessage = "Поле должно быть установлено")]
         [Range(1,999999, ErrorMessage = "Недопустимая сумма")]

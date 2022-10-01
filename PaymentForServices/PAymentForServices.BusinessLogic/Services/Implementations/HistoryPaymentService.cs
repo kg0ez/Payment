@@ -23,6 +23,8 @@ namespace PAymentForServices.BusinessLogic.Services
         {
             var payments = _context.HistoryPayments
                 .Where(hp => hp.UserId == Id)
+                .Include(hp => hp.User)
+                .Include(hp => hp.Category)
                 .AsNoTracking()
                 .ToList();
 

@@ -7,6 +7,8 @@ namespace PaymentForServices.Models.Models
 
         public int PaymentAmount { get; set; }
 
+        public string CodeTransaction { get; set; } = null!;
+
         public DateTime CreatAt { get; set; }
 
         public int UserId { get; set; }

@@ -52,7 +52,7 @@ namespace PAymentForServices.Service.Handler
             {
                 return methodService.GetCategoryId(query.Object);
             }
-            else if (query.Type == QueryUserType.GetHistoryPayment)
+            else if (query.Type == QueryUserType.GetHistoryPayments)
             {
                 return methodService.GetHistoryPayment(query.Object);
             }
