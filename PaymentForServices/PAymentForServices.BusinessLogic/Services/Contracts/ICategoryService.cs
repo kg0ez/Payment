@@ -8,6 +8,7 @@ namespace PAymentForServices.BusinessLogic.Services
         void Sync();
         List<ServiceDto> GetServices();
         List<CategoryDto> GetCategories(int id);
+        int GetCategoryId(string name);
     }
 }
 

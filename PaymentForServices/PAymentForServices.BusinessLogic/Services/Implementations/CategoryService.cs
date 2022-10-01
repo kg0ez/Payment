@@ -22,7 +22,6 @@ namespace PAymentForServices.BusinessLogic.Services
         public List<ServiceDto> GetServices()
         {
             var services = _context.Services
-                //.Include(s => s.Categories)
                 .AsNoTracking()
                 .ToList();
 
@@ -43,7 +42,10 @@ namespace PAymentForServices.BusinessLogic.Services
             return categoriesDto;
         }
 
-
+        public int GetCategoryId(string name)
+        {
+            return _context.Categories.FirstOrDefault(c => c.Name == name)!.Id;
+        }
 
 
 

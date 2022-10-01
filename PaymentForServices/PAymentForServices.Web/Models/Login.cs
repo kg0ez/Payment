@@ -13,7 +13,6 @@ namespace PAymentForServices.Web.Models
 
         [Required(ErrorMessage = "Поле должно быть установлено")]
         [StringLength(15, MinimumLength = 7, ErrorMessage = "Длина строки должна быть от 7 до 15 символов")]
-        //[Remote(action: "CheckAccount", controller: "Authorization", ErrorMessage = "Пользователь с таким логином или паролем не найден")]
         public string Password { get; set; }
     }
 }

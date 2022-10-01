@@ -10,6 +10,8 @@ namespace PAymentForServices.BusinessLogic.Services
         bool PhoneExist(string phone);
         bool Get(LoginDto login);
         bool LoginExist(string login);
+        int GetId(string login);
+        UserDto GetUser(int Id);
     }
 }
 

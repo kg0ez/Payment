@@ -11,12 +11,18 @@ namespace PAymentForServices.Service.Services
         private readonly IMapper _mapper;
         private readonly IAccountService _accountService;
         private readonly ICategoryService _categoryService;
+        private readonly IHistoryPaymentService _historyPayment;
 
-        public MethodService(IMapper mapper,IAccountService accountService, ICategoryService categoryService)
+        public MethodService(
+            IMapper mapper,
+            IAccountService accountService,
+            ICategoryService categoryService,
+            IHistoryPaymentService historyPayment)
         {
             _mapper = mapper;
             _accountService = accountService;
             _categoryService = categoryService;
+            _historyPayment = historyPayment;
         }
 
         public string ExistEmail(string json)
@@ -73,6 +79,26 @@ namespace PAymentForServices.Service.Services
 
             return response;
         }
+        public string GetUserId(string json)
+        {
+            var login = JsonSerializer.Deserialize<string>(json);
+
+            var id = _accountService.GetId(login);
+
+            var response = JsonSerializer.Serialize<int>(id);
+
+            return response;
+        }
+        public string GetUser(string json)
+        {
+            var id = JsonSerializer.Deserialize<int>(json);
+
+            var user = _accountService.GetUser(id);
+
+            var response = JsonSerializer.Serialize<UserDto>(user);
+
+            return response;
+        }
 
         public string GetServices()
         {
@@ -90,6 +116,38 @@ namespace PAymentForServices.Service.Services
             var services = _categoryService.GetCategories(id);
 
             var response = JsonSerializer.Serialize<List<CategoryDto>>(services);
+
+            return response;
+        }
+
+        public string GetCategoryId(string json)
+        {
+            var name = JsonSerializer.Deserialize<string>(json);
+
+            var id = _categoryService.GetCategoryId(name);
+
+            var response = JsonSerializer.Serialize<int>(id);
+
+            return response;
+        }
+
+        public string GetHistoryPayment(string json)
+        {
+            var userId = JsonSerializer.Deserialize<int>(json);
+
+            var payments = _historyPayment.Get(userId);
+
+            var response = JsonSerializer.Serialize<List<HistoryPaymentDto>>(payments);
+
+            return response;
+        }
+        public string SyncHistoryPayment(string json)
+        {
+            var paymentDto = JsonSerializer.Deserialize<HistoryPaymentDto>(json);
+
+            var result = _historyPayment.Sync(paymentDto);
+
+            var response = JsonSerializer.Serialize<bool>(result);
 
             return response;
         }

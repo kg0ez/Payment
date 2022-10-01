@@ -44,11 +44,14 @@ namespace PAymentForServices.Web.Controllers
                 var exist = JsonSerializer.Deserialize<bool>(answer);
 
                 if (exist)
+                {
+                    var userId = QueryHandler<string>.QueryGetId(login.UserLogin);
+                    Models.User.Id = userId;
+
                     return RedirectPermanent("~/Service/Services");
+                }
 
                 ModelState.AddModelError("", "Неверный пароль");
-                return View(login);
-
             }
             return View(login);
         }
@@ -87,7 +90,12 @@ namespace PAymentForServices.Web.Controllers
             var exist = JsonSerializer.Deserialize<bool>(answer);
 
             if (exist)
+            {
+                var userId = QueryHandler<string>.QueryGetId(registration.Phone);
+                Models.User.Id = userId;
+
                 return RedirectPermanent("~/Service/Services");
+            }
             return View(registration);
         }
 

@@ -75,6 +75,21 @@ namespace PAymentForServices.BusinessLogic.Services
             return _context.Users
                 .Any(u => u.Email == login || u.Phone == login);
         }
+
+        public int GetId(string login)
+        {
+            return _context.Users
+                .FirstOrDefault(u => u.Email == login || u.Phone == login)!.Id;
+        }
+
+        public UserDto GetUser(int id)
+        {
+            var user = _context.Users.FirstOrDefault(u=>u.Id == id);
+
+            var userDro = _mapper.Map<UserDto>(user);
+
+            return userDro;
+        }
     }
 }
 

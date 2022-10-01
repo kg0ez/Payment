@@ -40,6 +40,26 @@ namespace PAymentForServices.Service.Handler
             {
                 return methodService.GetCategories(query.Object);
             }
+            else if (query.Type == QueryUserType.GetId)
+            {
+                return methodService.GetUserId(query.Object);
+            }
+            else if (query.Type == QueryUserType.GetUser)
+            {
+                return methodService.GetUser(query.Object);
+            }
+            else if (query.Type == QueryUserType.GetCategoryId)
+            {
+                return methodService.GetCategoryId(query.Object);
+            }
+            else if (query.Type == QueryUserType.GetHistoryPayment)
+            {
+                return methodService.GetHistoryPayment(query.Object);
+            }
+            else if (query.Type == QueryUserType.SyncHistoryPayment)
+            {
+                return methodService.SyncHistoryPayment(query.Object);
+            }
             return "Not found";
         }
     }

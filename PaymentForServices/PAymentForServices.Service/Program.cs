@@ -23,6 +23,7 @@ var serviceProvider = new ServiceCollection()
             .AddSingleton<ApplicationContext, ApplicationContext>()
             .AddSingleton<IMethodService, MethodService>()
             .AddSingleton<ICategoryService, CategoryService>()
+            .AddSingleton<IHistoryPaymentService, HistoryPaymentService>()
             .AddSingleton(mapper)
             .BuildServiceProvider();    
 

@@ -4,6 +4,9 @@ namespace PaymentForServices.Models.Models
     public class HistoryPayment
     {
         public int Id { get; set; }
+
+        public int PaymentAmount { get; set; }
+
         public DateTime CreatAt { get; set; }
 
         public int UserId { get; set; }

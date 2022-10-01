@@ -8,9 +8,15 @@ namespace PAymentForServices.Common.Enums
         EmailExist,
         PhoneExist,
         CreatAccount,
+        GetId,
+        GetUser,
 
         GetServices,
-        GetCategoris
+        GetCategoris,
+
+        GetCategoryId,
+        GetHistoryPayment,
+        SyncHistoryPayment
     }
 }
 
