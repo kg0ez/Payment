@@ -7,6 +7,7 @@ namespace PAymentForServices.BusinessLogic.Services
     {
         bool Sync(HistoryPaymentDto payment);
         List<HistoryPaymentDto> Get(int Id);
+        bool Delete(int Id);
     }
 }
 

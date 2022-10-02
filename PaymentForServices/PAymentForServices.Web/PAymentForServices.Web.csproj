@@ -33,6 +33,7 @@
     <Folder Include="wwwroot\img\Payment\" />
     <Folder Include="Handler\" />
     <Folder Include="Mapper\" />
+    <Folder Include="wwwroot\img\history\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\img\" />
@@ -48,6 +49,7 @@
     <Content Remove="wwwroot\img\advantages\" />
     <Content Remove="wwwroot\img\LogReg\" />
     <Content Remove="wwwroot\img\Payment\" />
+    <Content Remove="wwwroot\img\history\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PAymentForServices.Common\PAymentForServices.Common.csproj">

@@ -17,6 +17,7 @@ namespace PAymentForServices.Service.Services
 
         string GetHistoryPayment(string json);
         string SyncHistoryPayment(string json);
+        string DeleteHistoryPayment(string json);
     }
 }
 

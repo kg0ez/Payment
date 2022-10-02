@@ -39,8 +39,22 @@ namespace PAymentForServices.BusinessLogic.Services
 
             _context.HistoryPayments.Add(payment);
 
-            return _context.SaveChanges()>0 ? true:false;
+            return Save();
         }
+
+        public bool Delete(int id)
+        {
+            var hirstoryPayment = _context.HistoryPayments.FirstOrDefault(hp => hp.Id == id);
+
+            _context.HistoryPayments.Remove(hirstoryPayment);
+
+            return Save();
+        }
+
+        private bool Save() {
+            return _context.SaveChanges() > 0 ? true : false;
+        }
+
     }
 }
 

@@ -151,6 +151,17 @@ namespace PAymentForServices.Service.Services
 
             return response;
         }
+
+        public string DeleteHistoryPayment(string json)
+        {
+            var id = JsonSerializer.Deserialize<int>(json);
+
+            var result = _historyPayment.Delete(id);
+
+            var response = JsonSerializer.Serialize<bool>(result);
+
+            return response;
+        }
     }
 }
 

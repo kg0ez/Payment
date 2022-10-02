@@ -17,7 +17,7 @@ public class HomeController : Controller
     }
     public IActionResult HistoryPaymentPage()
     {
-        string json = QueryHandler<int>.Serialize(Models.UserAccount.Id, QueryUserType.GetHistoryPayments);
+        string json = QueryHandler<int>.Serialize(UserAccount.Id, QueryUserType.GetHistoryPayments);
 
         string answer = NetworkHandler.Client(json);
 
@@ -27,19 +27,36 @@ public class HomeController : Controller
         //{
         //    new HistoryPaymentDto
         //    {
+        //        Id =1,
         //        Category = new CategoryDto{ Name =  "Билеты Белавиа, ЖД"    },
         //        PaymentAmount = 110,
         //        User = new UserDto{ Name= "Кирилл", LastName="Бовбель",Partonymic="Александрович"},
-        //        CreatAt = DateTime.Now
+        //        CreatAt = DateTime.Now,
+        //        CodeTransaction = "12345"
+
         //    },new HistoryPaymentDto
         //    {
+        //        Id= 2,
         //        Category = new CategoryDto{ Name =  "Билеты Белавиа, ЖД"    },
         //        PaymentAmount = 110,
         //        User = new UserDto{ Name= "Кирилл", LastName="Бовбель",Partonymic="Александрович"},
-        //        CreatAt = DateTime.Now
+        //        CreatAt = DateTime.Now,
+        //        CodeTransaction = "12345"
         //    },
         //};
         return View(historyPayment);
+    }
+
+    [HttpPost]
+    public IActionResult Trash(int historyId)
+    {
+        string json = QueryHandler<int>.Serialize(historyId, QueryUserType.DeleteHistoryPayment);
+
+        string answer = NetworkHandler.Client(json);
+
+        var historyPayment = JsonSerializer.Deserialize<bool>(answer);
+
+        return RedirectToActionPermanent("HistoryPaymentPage", "Home");
     }
 
     [HttpPost]

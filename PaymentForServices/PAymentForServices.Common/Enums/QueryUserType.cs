@@ -16,7 +16,8 @@ namespace PAymentForServices.Common.Enums
         GetCategoryId,
 
         GetHistoryPayments,
-        SyncHistoryPayment
+        SyncHistoryPayment,
+        DeleteHistoryPayment
     }
 }
 

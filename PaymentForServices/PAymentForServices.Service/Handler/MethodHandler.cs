@@ -60,6 +60,10 @@ namespace PAymentForServices.Service.Handler
             {
                 return methodService.SyncHistoryPayment(query.Object);
             }
+            else if (query.Type == QueryUserType.DeleteHistoryPayment)
+            {
+                return methodService.DeleteHistoryPayment(query.Object);
+            }
             return "Not found";
         }
     }

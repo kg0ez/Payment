@@ -3,6 +3,7 @@ namespace PAymentForServices.Common.ModelsDto
 {
     public class HistoryPaymentDto
     {
+        public int Id { get; set; }
         public DateTime CreatAt { get; set; } = DateTime.Now;
 
         public int PaymentAmount { get; set; }

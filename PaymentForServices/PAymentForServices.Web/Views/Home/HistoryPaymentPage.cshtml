@@ -16,7 +16,13 @@
                 @foreach (var history in Model)
                 {
                     <div class="main-block__body">
-                        <div align="left" class="form__title title-under">@history.User.LastName @history.User.Name @history.User.Partonymic</div>
+                        <div class="title-couple main-couple">
+                            <div align="left" class="form__title-user">@history.User.LastName @history.User.Name @history.User.Partonymic</div>
+                            <form method="post" asp-action="Trash" asp-controller="Home">
+                                <input class="form__input-card" name="historyId" value="@history.Id" hidden="hidden" />
+                                <input class="form__input-trash" type="submit" value="" />
+                            </form>
+                        </div>
                         <div class="title-couple">
                             <div align="left" class="form__subtitle">Наименование услуги: </div>
                             <div align="left" class="form__title"> @history.Category.Name</div>
