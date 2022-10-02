@@ -126,6 +126,7 @@ html, body {
     font-weight:600;
     height:40px;
     width:75%;
+    background-color:#fff;
 }
 .main-block__form-img {
     width:10%;
@@ -187,4 +188,7 @@ html, body {
     color: #fff;
     font-size: 18px;
     font-weight: 600;
+}
+.main-body_img {
+    max-width:600px;
 }

@@ -46,7 +46,7 @@ namespace PAymentForServices.Web.Controllers
                 if (exist)
                 {
                     var userId = QueryHandler<string>.QueryGetId(login.UserLogin);
-                    Models.User.Id = userId;
+                    Models.UserAccount.Id = userId;
 
                     return RedirectPermanent("~/Service/Services");
                 }
@@ -92,7 +92,7 @@ namespace PAymentForServices.Web.Controllers
             if (exist)
             {
                 var userId = QueryHandler<string>.QueryGetId(registration.Phone);
-                Models.User.Id = userId;
+                Models.UserAccount.Id = userId;
 
                 return RedirectPermanent("~/Service/Services");
             }

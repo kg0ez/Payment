@@ -17,7 +17,7 @@ public class HomeController : Controller
     }
     public IActionResult HistoryPaymentPage()
     {
-        string json = QueryHandler<int>.Serialize(Models.User.Id, QueryUserType.GetHistoryPayments);
+        string json = QueryHandler<int>.Serialize(Models.UserAccount.Id, QueryUserType.GetHistoryPayments);
 
         string answer = NetworkHandler.Client(json);
 

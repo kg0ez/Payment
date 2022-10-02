@@ -58,7 +58,7 @@ namespace PAymentForServices.Web.Controllers
 
         public IActionResult Payment(string nameCategory)
         {
-            var user = QueryHandler<int>.QueryGetUser(Models.User.Id);
+            var user = QueryHandler<int>.QueryGetUser(Models.UserAccount.Id);
 
             var payment = new Payment
             {
@@ -85,7 +85,7 @@ namespace PAymentForServices.Web.Controllers
             var history = new HistoryPaymentDto
             {
                 CategoryId = categoryId,
-                UserId = Models.User.Id,
+                UserId = Models.UserAccount.Id,
                 PaymentAmount = payment.PaymentAmount,
                 CodeTransaction = payment.CodeTransaction
             };

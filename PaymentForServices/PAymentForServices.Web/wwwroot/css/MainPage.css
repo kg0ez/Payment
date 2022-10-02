@@ -309,7 +309,9 @@ html, body {
     border: 1px solid #0d5c63;
     color: black;
 }
-
+.main-body__rt {
+    padding-left:100px;
+}
 .main-block__image {
     position: absolute;
     width: 100%;

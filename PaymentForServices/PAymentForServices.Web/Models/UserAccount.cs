@@ -1,7 +1,7 @@
 ﻿using System;
 namespace PAymentForServices.Web.Models
 {
-    public static class User
+    public static class UserAccount
     {
         public static int Id { get; set; }
     }
