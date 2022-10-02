@@ -32,9 +32,16 @@
                                         <input class="main-block__form-submit" type="submit" value="@service.Name" />
                                         <input name="category" value="@service.Name" hidden="hidden" />
                                     </form>
+
                                 }
                             }
 
+                        }
+                        @if (Model[0].NameImg != "Folder.png")
+                        {
+                            <form class="main-block__form" asp-action="Cancel" asp-controller="Service">
+                                <input class="form__submit" type="submit" value="Назад" />
+                            </form>
                         }
                     </div>
                     <div>

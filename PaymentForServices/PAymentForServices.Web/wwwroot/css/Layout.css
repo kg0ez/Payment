@@ -68,5 +68,20 @@
     font-weight: 600;
 }
 
+.button-logout {
+    width: 80px;
+}
+    .button-logout:hover {
+        border-radius: 5px;
+        border: 1px solid #0d5c63;
+    }
+    .button-logout:hover .button_logout-text {
+        font-weight: 700;
+        color:#000;
+    }
+.button_logout-text {
+    color: #0d5c63;
+    font-weight: 600;
+}
 
 

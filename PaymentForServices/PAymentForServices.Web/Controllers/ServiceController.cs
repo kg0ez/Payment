@@ -33,12 +33,17 @@ namespace PAymentForServices.Web.Controllers
 
             var typeServices = _mapper.Map<List<TypeService>>(services);
 
+            UserAccount.ServiceId = default;
+
             return View(typeServices);
         }
 
         [HttpPost]
         public IActionResult Services(int Id)
         {
+            if (Id==0 && UserAccount.ServiceId !=0)
+                Id = UserAccount.ServiceId;
+            
             string json = QueryHandler<int>.Serialize(Id, QueryUserType.GetCategoris);
 
             string answer = NetworkHandler.Client(json);
@@ -47,6 +52,8 @@ namespace PAymentForServices.Web.Controllers
 
             var typeServices = _mapper.Map<List<TypeService>>(categories);
 
+            UserAccount.ServiceId = Id;
+
             return View(typeServices);
         }
 
@@ -54,6 +61,12 @@ namespace PAymentForServices.Web.Controllers
         public IActionResult Category(string category)
         {
             return RedirectToActionPermanent("Payment", "Service", new { nameCategory = category});
+        }
+
+        [HttpPost]
+        public IActionResult Cancel()
+        {
+            return RedirectToActionPermanent("Services", "Service");
         }
 
         public IActionResult Payment(string nameCategory)

@@ -41,5 +41,13 @@ public class HomeController : Controller
         //};
         return View(historyPayment);
     }
+
+    [HttpPost]
+    public IActionResult Logout()
+    {
+        UserAccount.Id = 0;
+        UserAccount.ServiceId = 0;
+        return RedirectToActionPermanent("MainPage", "Home");
+    }
 }
 

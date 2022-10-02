@@ -42,6 +42,9 @@
                             <input class="form__input" value="@Model.NameService" asp-for="NameService" hidden="hidden" />
                             <input class="form__submit" type="submit" value="Оплатить" />
                         </form>
+                        <form class="main-block__form" asp-action="Services" asp-controller="Service">
+                            <input class="form__submit" type="submit" value="Назад" />
+                        </form>
                     </div>
                     <div>
                         <img class="main-body_img" align="right" src="~/img/Payment/usd.jpg" alt="Финансы" />
