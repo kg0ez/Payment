@@ -59,9 +59,9 @@ namespace PAymentForServices.Service
 
                 string json = response.ToString();
 
-                var query = JsonSerializer.Deserialize<ServerQuery>(json);
+                var query = JsonSerializer.Deserialize<ServerQuery>(json)!;
 
-                json = MethodHandler.SearchMethod(query,_methodService,_userJsonService,_hpJsonService,_categoryJsonService);
+                json = TypeHandler.SearchType(query,_methodService);
 
                 buffer = Encoding.Unicode.GetBytes(json);
                 stream.Write(buffer, 0, buffer.Length);

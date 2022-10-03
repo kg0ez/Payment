@@ -9,20 +9,28 @@ namespace PAymentForServices.Web.Handler
 {
     public static class QueryHandler<T>
     {
-        public static string Serialize(T obj, QueryUserType type)
+        public static string Serialize(T obj,QueryType type, string someTypeAction)
         {
             ServerQuery query = new ServerQuery
             {
                 Type = type,
+                TypeAction = someTypeAction,
                 Object = JsonSerializer.Serialize<T>(obj)
             };
             var json = JsonSerializer.Serialize<ServerQuery>(query);
             return json;
         }
 
+        public static string QueryTypeSerialize(T someType)
+        {
+            return JsonSerializer.Serialize<T>(someType);
+        }
+
         public static int QueryGetId(T login)
         {
-            var json = Serialize(login, QueryUserType.GetId);
+            var typeAction = JsonSerializer.Serialize<QueryUserType>(QueryUserType.GetId);
+
+            var json = Serialize(login, QueryType.User, typeAction);
 
             string answer = NetworkHandler.Client(json);
 
@@ -33,7 +41,9 @@ namespace PAymentForServices.Web.Handler
 
         public static UserDto QueryGetUser(T id)
         {
-            var json = Serialize(id, QueryUserType.GetUser);
+            var typeAction = JsonSerializer.Serialize<QueryUserType>(QueryUserType.GetUser);
+
+            var json = Serialize(id, QueryType.User, typeAction);
 
             var answer = NetworkHandler.Client(json);
 

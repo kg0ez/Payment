@@ -25,7 +25,9 @@ namespace PAymentForServices.Web.Controllers
 
         public IActionResult Services()
         {
-            string json = QueryHandler<string>.Serialize("", QueryUserType.GetServices);
+            var typeAction = QueryHandler<QueryCategoryType>.QueryTypeSerialize(QueryCategoryType.GetServices);
+
+            string json = QueryHandler<string>.Serialize("", QueryType.Category, typeAction);
 
             string answer = NetworkHandler.Client(json);
 
@@ -43,8 +45,10 @@ namespace PAymentForServices.Web.Controllers
         {
             if (Id==0 && UserAccount.ServiceId !=0)
                 Id = UserAccount.ServiceId;
-            
-            string json = QueryHandler<int>.Serialize(Id, QueryUserType.GetCategoris);
+
+            var typeAction = QueryHandler<QueryCategoryType>.QueryTypeSerialize(QueryCategoryType.GetCategoris);
+
+            string json = QueryHandler<int>.Serialize(Id, QueryType.Category,typeAction);
 
             string answer = NetworkHandler.Client(json);
 
@@ -89,7 +93,9 @@ namespace PAymentForServices.Web.Controllers
             if (!ModelState.IsValid)
                 return View(payment);
 
-            string json = QueryHandler<string>.Serialize(payment.NameService, QueryUserType.GetCategoryId);
+            var typeAction = QueryHandler<QueryCategoryType>.QueryTypeSerialize(QueryCategoryType.GetCategoryId);
+
+            string json = QueryHandler<string>.Serialize(payment.NameService, QueryType.Category, typeAction);
 
             string answer = NetworkHandler.Client(json);
 
@@ -103,7 +109,9 @@ namespace PAymentForServices.Web.Controllers
                 CodeTransaction = payment.CodeTransaction
             };
 
-            json = QueryHandler<HistoryPaymentDto>.Serialize(history, QueryUserType.SyncHistoryPayment);
+            typeAction = QueryHandler<QueryHistoryPaymentType>.QueryTypeSerialize(QueryHistoryPaymentType.SyncHistoryPayment);
+
+            json = QueryHandler<HistoryPaymentDto>.Serialize(history, QueryType.HistoryPayment, typeAction);
 
             answer = NetworkHandler.Client(json);
 

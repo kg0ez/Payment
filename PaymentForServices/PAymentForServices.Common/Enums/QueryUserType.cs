@@ -11,13 +11,13 @@ namespace PAymentForServices.Common.Enums
         GetId,
         GetUser,
 
-        GetServices,
-        GetCategoris,
-        GetCategoryId,
+        //GetServices,
+        //GetCategoris,
+        //GetCategoryId,
 
-        GetHistoryPayments,
-        SyncHistoryPayment,
-        DeleteHistoryPayment
+        //GetHistoryPayments,
+        //SyncHistoryPayment,
+        //DeleteHistoryPayment
     }
 }
 

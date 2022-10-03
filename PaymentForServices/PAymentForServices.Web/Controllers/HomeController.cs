@@ -17,7 +17,9 @@ public class HomeController : Controller
     }
     public IActionResult HistoryPaymentPage()
     {
-        string json = QueryHandler<int>.Serialize(UserAccount.Id, QueryUserType.GetHistoryPayments);
+        var typeAction = QueryHandler<QueryHistoryPaymentType>.QueryTypeSerialize(QueryHistoryPaymentType.GetHistoryPayments);
+
+        string json = QueryHandler<int>.Serialize(UserAccount.Id, QueryType.HistoryPayment, typeAction);
 
         string answer = NetworkHandler.Client(json);
 
@@ -50,7 +52,9 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult Trash(int historyId)
     {
-        string json = QueryHandler<int>.Serialize(historyId, QueryUserType.DeleteHistoryPayment);
+        var typeAction = QueryHandler<QueryHistoryPaymentType>.QueryTypeSerialize(QueryHistoryPaymentType.DeleteHistoryPayment);
+
+        string json = QueryHandler<int>.Serialize(historyId, QueryType.HistoryPayment, typeAction);
 
         string answer = NetworkHandler.Client(json);
 

@@ -37,7 +37,9 @@ namespace PAymentForServices.Web.Controllers
             {
                 var loginDto = _mapper.Map<LoginDto>(login);
 
-                string json = QueryHandler<LoginDto>.Serialize(loginDto, QueryUserType.GetAccount);
+                var typeAction = QueryHandler<QueryUserType>.QueryTypeSerialize(QueryUserType.GetAccount);
+
+                string json = QueryHandler<LoginDto>.Serialize(loginDto, QueryType.User, typeAction);
 
                 string answer = NetworkHandler.Client(json);
 
@@ -59,7 +61,9 @@ namespace PAymentForServices.Web.Controllers
         [AcceptVerbs("Get", "Post")]
         public IActionResult CheckLogin(string UserLogin)
         {
-            string json = QueryHandler<string>.Serialize(UserLogin, QueryUserType.LoginExist);
+            var typeAction = QueryHandler<QueryUserType>.QueryTypeSerialize(QueryUserType.LoginExist);
+
+            string json = QueryHandler<string>.Serialize(UserLogin, QueryType.User, typeAction);
 
             string answer = NetworkHandler.Client(json);
 
@@ -83,7 +87,9 @@ namespace PAymentForServices.Web.Controllers
 
             RegistrationDto dto = _mapper.Map<RegistrationDto>(registration);
 
-            string json = QueryHandler<RegistrationDto>.Serialize(dto, QueryUserType.CreatAccount);
+            var typeAction = QueryHandler<QueryUserType>.QueryTypeSerialize(QueryUserType.CreatAccount);
+
+            string json = QueryHandler<RegistrationDto>.Serialize(dto, QueryType.User, typeAction);
 
             string answer = NetworkHandler.Client(json);
 
@@ -102,7 +108,9 @@ namespace PAymentForServices.Web.Controllers
         [AcceptVerbs("Get", "Post")]
         public IActionResult CheckEmail(string Email)
         {
-            string json = QueryHandler<string>.Serialize(Email, QueryUserType.EmailExist);
+            var typeAction = QueryHandler<QueryUserType>.QueryTypeSerialize(QueryUserType.EmailExist);
+
+            string json = QueryHandler<string>.Serialize(Email, QueryType.User, typeAction);
 
             string answer = NetworkHandler.Client(json);
 
@@ -116,7 +124,9 @@ namespace PAymentForServices.Web.Controllers
         [AcceptVerbs("Get", "Post")]
         public IActionResult CheckPhone(string Phone)
         {
-            string json = QueryHandler<string>.Serialize(Phone, QueryUserType.PhoneExist);
+            var typeAction = QueryHandler<QueryUserType>.QueryTypeSerialize(QueryUserType.PhoneExist);
+
+            string json = QueryHandler<string>.Serialize(Phone, QueryType.User, typeAction);
 
             string answer = NetworkHandler.Client(json);
 
