@@ -13,14 +13,27 @@ namespace PAymentForServices.Service
     public class ClientConnection
     {
         private TcpClient _tcpClient;
+
         private readonly IAccountService _accountService;
         private readonly IMethodService _methodService;
+        private readonly IUserJsonService _userJsonService;
+        private readonly IHistoryPaymentJsonService _hpJsonService;
+        private readonly ICategoryJsonService _categoryJsonService;
 
-        public ClientConnection(TcpClient tcpClient,IAccountService accountService, IMethodService methodService)
+        public ClientConnection(
+            TcpClient tcpClient,
+            IAccountService accountService,
+            IMethodService methodService,
+            IUserJsonService userService,
+            IHistoryPaymentJsonService paymentJsonService,
+            ICategoryJsonService categoryJsonService)
         {
             _tcpClient = tcpClient;
             _accountService = accountService;
             _methodService = methodService;
+            _userJsonService = userService;
+            _hpJsonService = paymentJsonService;
+            _categoryJsonService = categoryJsonService;
         }
 
         public void Process()
@@ -48,7 +61,7 @@ namespace PAymentForServices.Service
 
                 var query = JsonSerializer.Deserialize<ServerQuery>(json);
 
-                json = MethodHandler.SearchMethod(query,_methodService);
+                json = MethodHandler.SearchMethod(query,_methodService,_userJsonService,_hpJsonService,_categoryJsonService);
 
                 buffer = Encoding.Unicode.GetBytes(json);
                 stream.Write(buffer, 0, buffer.Length);

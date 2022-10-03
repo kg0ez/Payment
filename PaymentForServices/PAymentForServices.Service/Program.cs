@@ -20,16 +20,23 @@ IMapper mapper = mapperConfiguration.CreateMapper();
 var serviceProvider = new ServiceCollection()
             .AddLogging()
             .AddSingleton<IAccountService, AccountService>()
-            .AddSingleton<ApplicationContext, ApplicationContext>()
             .AddSingleton<IMethodService, MethodService>()
             .AddSingleton<ICategoryService, CategoryService>()
             .AddSingleton<IHistoryPaymentService, HistoryPaymentService>()
+            .AddSingleton<IUserJsonService, UserJsonService>()
+            .AddSingleton<IHistoryPaymentJsonService, HistoryPaymentJsonService>()
+            .AddSingleton<ICategoryJsonService, CategoryJsonService>()
+            .AddSingleton<ApplicationContext, ApplicationContext>()
             .AddSingleton(mapper)
             .BuildServiceProvider();    
 
 var accountService = serviceProvider.GetService<IAccountService>();
 var methodService = serviceProvider.GetService<IMethodService>();
 var categoryService = serviceProvider.GetService<ICategoryService>();
+
+var userJsonService = serviceProvider.GetService<IUserJsonService>();
+var HPJsonService = serviceProvider.GetService<IHistoryPaymentJsonService>();
+var categoryJsonService = serviceProvider.GetService<ICategoryJsonService>();
 
 //accountService.Sync();
 //categoryService.Sync();
@@ -49,7 +56,11 @@ try
         //Для входящих
         TcpClient client = listener.AcceptTcpClient();
 
-        ClientConnection separateCon = new ClientConnection(client,accountService,methodService);
+        ClientConnection separateCon = new ClientConnection(
+            client,
+            accountService,
+            methodService,
+            userJsonService, HPJsonService, categoryJsonService);
 
         Thread clientThread = new Thread(new ThreadStart(separateCon.Process));
         clientThread.Start();

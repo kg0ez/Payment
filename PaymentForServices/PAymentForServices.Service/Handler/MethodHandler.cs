@@ -10,60 +10,71 @@ namespace PAymentForServices.Service.Handler
 {
     public static class MethodHandler
     {
-        public static string SearchMethod(ServerQuery query, IMethodService methodService)
+        public static string SearchMethod(
+            ServerQuery query,
+            IMethodService methodService,
+            IUserJsonService userJsonService,
+            IHistoryPaymentJsonService hpJsonService,
+            ICategoryJsonService categoryJsonService)
         {
             if (query.Type == QueryUserType.PhoneExist)
             {
-                return methodService.ExistPhone(query.Object);
+                return userJsonService.PhoneExist(query.Object);
             }
             else if (query.Type == QueryUserType.EmailExist)
             {
-                return methodService.ExistEmail(query.Object);
+                return userJsonService.EmailExist(query.Object);
             }
             else if (query.Type == QueryUserType.CreatAccount)
             {
-                return methodService.CreatAccount(query.Object);
+                return userJsonService.CreatAccount(query.Object);
             }
-            else if (query.Type == QueryUserType.GetLogin)
+            else if (query.Type == QueryUserType.LoginExist)
             {
-                return methodService.ExistLogin(query.Object);
+                return userJsonService.LoginExist(query.Object);
             }
             else if (query.Type == QueryUserType.GetAccount)
             {
-                return methodService.ExistAccount(query.Object);
-            }
-            else if (query.Type == QueryUserType.GetServices)
-            {
-                return methodService.GetServices();
-            }
-            else if (query.Type == QueryUserType.GetCategoris)
-            {
-                return methodService.GetCategories(query.Object);
+                return userJsonService.AccountExist(query.Object);
             }
             else if (query.Type == QueryUserType.GetId)
             {
-                return methodService.GetUserId(query.Object);
+                return userJsonService.GetId(query.Object);
             }
             else if (query.Type == QueryUserType.GetUser)
             {
-                return methodService.GetUser(query.Object);
+                return userJsonService.Get(query.Object);
+            }
+
+
+            else if (query.Type == QueryUserType.GetServices)
+            {
+                return categoryJsonService.GetServices();
+            }
+            else if (query.Type == QueryUserType.GetCategoris)
+            {
+                return categoryJsonService.Get(query.Object);
             }
             else if (query.Type == QueryUserType.GetCategoryId)
             {
-                return methodService.GetCategoryId(query.Object);
+                return categoryJsonService.GetId(query.Object);
             }
+
+
             else if (query.Type == QueryUserType.GetHistoryPayments)
             {
-                return methodService.GetHistoryPayment(query.Object);
+                return hpJsonService.Get(query.Object);
             }
             else if (query.Type == QueryUserType.SyncHistoryPayment)
             {
-                return methodService.SyncHistoryPayment(query.Object);
+                return hpJsonService.Sync(query.Object);
             }
             else if (query.Type == QueryUserType.DeleteHistoryPayment)
             {
-                return methodService.DeleteHistoryPayment(query.Object);
+                return hpJsonService.Delete(query.Object);
             }
+
+
             return "Not found";
         }
     }

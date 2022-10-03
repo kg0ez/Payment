@@ -3,7 +3,7 @@ namespace PAymentForServices.Common.Enums
 {
     public enum QueryUserType
     {
-        GetLogin,
+        LoginExist,
         GetAccount,
         EmailExist,
         PhoneExist,

@@ -59,7 +59,7 @@ namespace PAymentForServices.Web.Controllers
         [AcceptVerbs("Get", "Post")]
         public IActionResult CheckLogin(string UserLogin)
         {
-            string json = QueryHandler<string>.Serialize(UserLogin, QueryUserType.GetLogin);
+            string json = QueryHandler<string>.Serialize(UserLogin, QueryUserType.LoginExist);
 
             string answer = NetworkHandler.Client(json);
 
