@@ -13,6 +13,10 @@ using PAymentForServices.BusinessLogic.Services;
 using PAymentForServices.Web.Handler;
 using System.Numerics;
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Google;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using PaymentForServices.Models.Models;
 
 namespace PAymentForServices.Web.Controllers
 {
@@ -23,6 +27,40 @@ namespace PAymentForServices.Web.Controllers
         public AuthorizationController(IMapper mapper)
         {
             _mapper = mapper;
+        }
+
+        public async Task LoginGoogle()
+        {
+            await HttpContext.ChallengeAsync(GoogleDefaults.AuthenticationScheme, new AuthenticationProperties()
+            {
+                RedirectUri = Url.Action("ResponseGoogle"),
+            });
+            //Я хз как и почему, но ResponseGoogle, не видит только при первом запуске
+            Models.UserAccount.Id = 1;
+        }
+        public async Task<IActionResult> ResponseGoogle()
+        {
+            var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            var claims = result.Principal.Identities
+                .FirstOrDefault().Claims.Select(claim => new
+                {
+                    claim.Issuer,
+                    claim.OriginalIssuer,
+                    claim.Type,
+                    claim.Value
+                });
+            var login = claims.Where(x => x.Value.Contains("@")).First().Value;
+            var userId = QueryHandler<string>.QueryGetId(login);
+            Models.UserAccount.Id = userId;
+
+            return RedirectPermanent("~/Service/Services");
+        }
+
+        public async Task<IActionResult> CoogleLogout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("~/Service/Services");
         }
 
         public IActionResult Login()

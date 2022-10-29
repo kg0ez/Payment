@@ -1,4 +1,7 @@
-﻿using PAymentForServices.BusinessLogic.Services;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication.Google;
+using PAymentForServices.BusinessLogic.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +19,19 @@ void RegisterServices(IServiceCollection services)
     services.AddControllersWithViews();
 
     services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+    services.AddAuthentication(option =>
+    {
+        option.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
+        option.DefaultChallengeScheme = GoogleDefaults.AuthenticationScheme;
+    })
+        .AddCookie()
+        .AddGoogle(GoogleDefaults.AuthenticationScheme, options =>
+        {
+            options.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+            options.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+            options.ClaimActions.MapJsonKey("urn:google:picture", "picture", "url");
+        });
 }
 
 void Configure(WebApplication app)
@@ -24,6 +40,8 @@ void Configure(WebApplication app)
     app.UseStaticFiles();
 
     app.UseRouting();
+
+    app.UseAuthentication();
 
     app.UseAuthorization();
 

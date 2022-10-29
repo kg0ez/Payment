@@ -1,6 +1,8 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.Text.Json;
 using System.Xml.Linq;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using PAymentForServices.Common.Enums;
 using PAymentForServices.Common.ModelsDto;
@@ -43,10 +45,18 @@ public class HomeController : Controller
     }
 
     [HttpPost]
-    public IActionResult Logout()
+    public async Task<IActionResult> LogoutAsync()
     {
         UserAccount.Id = 0;
         UserAccount.ServiceId = 0;
+        await HttpContext.SignOutAsync();
+        return RedirectToActionPermanent("MainPage", "Home");
+    }
+
+    [HttpPost]
+    public IActionResult Support()
+    {
+        ActionsHandler.Support = !ActionsHandler.Support;
         return RedirectToActionPermanent("MainPage", "Home");
     }
 }

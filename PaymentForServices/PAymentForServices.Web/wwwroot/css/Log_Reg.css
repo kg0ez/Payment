@@ -288,3 +288,7 @@ html, body {
 .main-block__body-left {
     width: 60%;
 }
+
+.form__button-google {
+    content: url(/img/LogReg/google.png);
+}

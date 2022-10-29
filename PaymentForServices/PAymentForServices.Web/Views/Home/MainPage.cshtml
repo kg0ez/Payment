@@ -6,30 +6,6 @@
 </head>
 <body>
     <div class="wrapper">
-        @*<header class="header">
-            <div class="header__container _container">
-                <a class="header__logo" asp-controller="Home" asp-action="Index">
-                    Relvise
-                </a>
-                <nav class="header__menu menu">
-                    <ul class="menu__list">
-                        <li class="menu__item">
-                            <a class="menu__link" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="menu__item">
-                            <a class="menu__link" asp-controller="Home" asp-action="Privacy">Ticket</a>
-                        </li>
-                        <li class="menu__item">
-                            <a class="menu__link" asp-controller="Home" asp-action="NFT">NFT</a>
-                        </li>
-                        <li class="menu__item">
-                            <a class="menu__link">Contant</a>
-                        </li>
-                    </ul>
-                </nav>
-
-            </div>
-        </header>*@
         <main class="page">
             <div class="page__main-block main-block">
                 <div class="main-block__container _container">
@@ -37,7 +13,7 @@
                         <div>
                             <h1 class="main-block__title">Horizon - banking</h1>
                             <div class="main-block__text">
-                               Совершайте безопасные финансовые переводы и оплаты услуг
+                                Совершайте безопасные финансовые переводы и оплаты услуг
                             </div>
                         </div>
                         <div class="main-body__rt" align="right">
@@ -73,7 +49,7 @@
                                     <img class="icon-third" src="~/img/services/03_g.svg" alt="Консультации в сфере финансовых услуг" />
                                 </div>
                                 <h3 class="item-servise__title">Консультации в сфере финансовых услуг</h3>
-                            <div class="item-servise__text">Квалифицированные сотрудники помогут разобраться с трудностями</div>
+                                <div class="item-servise__text">Квалифицированные сотрудники помогут разобраться с трудностями</div>
                             </div>
                         </div>
                     </div>
@@ -84,7 +60,7 @@
                     <div class="advantages__header header-block">
                         <h2 class="header-block__title">Horizon-банкинг</h2>
                         <div class="header-block__sub-title">
-                            Простая, удобная и безопасная система дистанционного банковского самообслуживания.<br/> Совершайте банковские операции не выходя из дома в режиме 24/7 в любой точке мира, где есть интернет.
+                            Простая, удобная и безопасная система дистанционного банковского самообслуживания.<br /> Совершайте банковские операции не выходя из дома в режиме 24/7 в любой точке мира, где есть интернет.
                         </div>
                     </div>
                     <div class="advantages__body">
@@ -132,8 +108,8 @@
                     <div class="practice__header header-block">
                         <h2 class="header-block__title">Онлайн-сервисы</h2>
                         <div class="header-block__sub-title">
-                            Из-за сложной эпидемиологической ситуации все больше людей стараются <br/>
-                            перейти на удаленную работу или вынуждены работать дома на самоизоляции. <br/>
+                            Из-за сложной эпидемиологической ситуации все больше людей стараются <br />
+                            перейти на удаленную работу или вынуждены работать дома на самоизоляции. <br />
                             В такой ситуации предоставляем весь необходимый перечень услуг, которые можно совершить онлайн.
                         </div>
                     </div>
@@ -198,7 +174,7 @@
                     <div class="whoweare__header header-block">
                         <h2 class="header-block__title">Кто мы такие</h2>
                         <div class="header-block__sub-title">
-                            Крупнейшее универсальное системообразующее финансово-кредитное учреждение <br/>
+                            Крупнейшее универсальное системообразующее финансово-кредитное учреждение <br />
                             Республики Беларусь предлагает все виды банковских услуг и продуктов.
                         </div>
                     </div>
@@ -253,7 +229,7 @@
                     <div class="getintouch__header header-block">
                         <h2 class="header-block__title">Как связаться</h2>
                         <div class="header-block__sub-title">
-                            Столкнулись с проблемой или хотите узнать, как использовать возможности Horizon-banking по максимуму? <br/> Вы можете обратиться к нашей команде поддержки, и наша команда поможет вам
+                            Столкнулись с проблемой или хотите узнать, как использовать возможности Horizon-banking по максимуму? <br /> Вы можете обратиться к нашей команде поддержки, и наша команда поможет вам
                         </div>
                     </div>
                     <div class="getintouch__items">
@@ -307,6 +283,8 @@
                     </div>
                 </div>
             </section>
+            
+
         </main>
         <footer class="footer">
             <div class="footer__top">
@@ -408,10 +386,39 @@
                         <a href="" class="social__item"><img src="~/img/footer/social/03.svg" /></a>
                         <a href="https://www.youtube.com/channel/UCvNU4ws5i8U-vCuib6lNV0w" class="social__item"><img src="~/img/footer/social/04.svg" /></a>
                     </div>
+                    <div>
+                        <div class="button-pop_up">
+                            <form class="support__button" asp-action="Support" asp-controller="Home">
+                                <input class="button_logout-text" type="submit" value="Связаться с поддержкой " />
+                                <img class="support-img" src="~/img/support/support.png" alt="support" />
+                            </form>
+                        </div>
+                        @if (PAymentForServices.Web.Handler.ActionsHandler.Support)
+                        {
+                            <div class="pop_up">
+                                <div class="pop_up_container">
+                                    <div class="pop_up_body">
+                                        <p>Поддержка</p>
+                                        <form asp-action="Support" asp-controller="Home">
+                                            <input class="pop_up_body-input" type="text" placeholder="Вопрос" />
+                                            <input class="pop_up_body-input" type="email" placeholder="Email" />
+                                            <input class="support-submit" type="submit" value="Отправить" />
+                                        </form>
+                                        <div class="pop_up_close">
+                                            <form asp-action="Support" asp-controller="Home">
+                                                <input type="submit" value=&#10006 />
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
                 </div>
             </div>
         </footer>
     </div>
+    <script src="~/js/site.js" asp-append-version="true"></script>
 </body>
 
 

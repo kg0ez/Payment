@@ -1203,3 +1203,28 @@ html, body {
 .social__item:not(:last-child) {
     margin: 0px 20px 0px 0px;
 }
+
+
+.support__button:hover .support-img {
+    content: url(/img/support/support2.png);
+}
+.support-img {
+    width:14%;
+    max-height:1%;
+}
+.support__button {
+    display: flex;
+    min-height: 48px;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 0.2px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 200%;
+    padding: 5px 36px;
+    margin: 10px 3px;
+}
+
+    .support__button:hover .button_logout-text {
+        font-weight:800;
+    }

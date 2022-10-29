@@ -33,10 +33,10 @@
 
                         <div class="form__title" align="center">или зайдите с помощью</div>
                         <div class="main-block__continue">
-                            <div class="continue-item">
-                                <img class="main-block__img" src="~/img/LogReg/google.png" alt="Контролируй свои финансы" />
-                                <div class="main-block__text">Google</div>
-                            </div>
+                            <form class="continue-item" asp-controller="Authorization" asp-action="LoginGoogle">
+                                <img class="main-block__img" src="~/img/LogReg/google.png" alt=" " />
+                                <input class="main-block__text" type="submit" value="Google" />
+                            </form>
                             <div class="continue-item">
                                 <div class="main-block__img"></div>
                                 <div class="main-block__text">Apple</div>

@@ -13,6 +13,7 @@
     <None Remove="Client\" />
     <None Remove="Mapper\" />
     <None Remove="AutoMapper.Extensions.Microsoft.DependencyInjection" />
+    <None Remove="Microsoft.AspNetCore.Authentication.Google" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -34,6 +35,7 @@
     <Folder Include="Handler\" />
     <Folder Include="Mapper\" />
     <Folder Include="wwwroot\img\history\" />
+    <Folder Include="wwwroot\img\support\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\img\" />
@@ -50,6 +52,7 @@
     <Content Remove="wwwroot\img\LogReg\" />
     <Content Remove="wwwroot\img\Payment\" />
     <Content Remove="wwwroot\img\history\" />
+    <Content Remove="wwwroot\img\support\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PAymentForServices.Common\PAymentForServices.Common.csproj">
@@ -61,5 +64,6 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Google" Version="6.0.10" />
   </ItemGroup>
 </Project>
