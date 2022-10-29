@@ -36,7 +36,7 @@ namespace PAymentForServices.Service
             _categoryJsonService = categoryJsonService;
         }
 
-        public void Process()
+        public void ConnectionWithClient()
         {
             NetworkStream stream = null;
 
@@ -65,7 +65,7 @@ namespace PAymentForServices.Service
 
                 buffer = Encoding.Unicode.GetBytes(json);
                 stream.Write(buffer, 0, buffer.Length);
-
+                stream.Flush();
             }
 
             catch (Exception ex) { Console.WriteLine("Error: "+ex.Message); }
@@ -79,8 +79,6 @@ namespace PAymentForServices.Service
                     _tcpClient.Close();
             }
         }
-
-        
     }
 }
 

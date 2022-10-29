@@ -21,31 +21,10 @@ public class HomeController : Controller
 
         string json = QueryHandler<int>.Serialize(UserAccount.Id, QueryType.HistoryPayment, typeAction);
 
-        string answer = NetworkHandler.Client(json);
+        string answer = NetworkHandler.ConnectionWithServ(json);
 
         var historyPayment = JsonSerializer.Deserialize<List<HistoryPaymentDto>>(answer);
 
-        //var hp = new List<HistoryPaymentDto>
-        //{
-        //    new HistoryPaymentDto
-        //    {
-        //        Id =1,
-        //        Category = new CategoryDto{ Name =  "Билеты Белавиа, ЖД"    },
-        //        PaymentAmount = 110,
-        //        User = new UserDto{ Name= "Кирилл", LastName="Бовбель",Partonymic="Александрович"},
-        //        CreatAt = DateTime.Now,
-        //        CodeTransaction = "12345"
-
-        //    },new HistoryPaymentDto
-        //    {
-        //        Id= 2,
-        //        Category = new CategoryDto{ Name =  "Билеты Белавиа, ЖД"    },
-        //        PaymentAmount = 110,
-        //        User = new UserDto{ Name= "Кирилл", LastName="Бовбель",Partonymic="Александрович"},
-        //        CreatAt = DateTime.Now,
-        //        CodeTransaction = "12345"
-        //    },
-        //};
         return View(historyPayment);
     }
 
@@ -56,7 +35,7 @@ public class HomeController : Controller
 
         string json = QueryHandler<int>.Serialize(historyId, QueryType.HistoryPayment, typeAction);
 
-        string answer = NetworkHandler.Client(json);
+        string answer = NetworkHandler.ConnectionWithServ(json);
 
         var historyPayment = JsonSerializer.Deserialize<bool>(answer);
 

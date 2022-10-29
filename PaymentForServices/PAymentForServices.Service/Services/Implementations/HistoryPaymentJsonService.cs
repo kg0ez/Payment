@@ -28,7 +28,7 @@ namespace PAymentForServices.Service.Services
 
         public string Sync(string json)
         {
-            var paymentDto = JsonSerializer.Deserialize<HistoryPaymentDto>(json);
+            var paymentDto = JsonSerializer.Deserialize<HistoryPaymentDto>(json)!;
 
             var result = _historyPayment.Sync(paymentDto);
 

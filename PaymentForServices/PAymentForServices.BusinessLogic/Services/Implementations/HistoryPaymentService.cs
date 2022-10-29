@@ -44,7 +44,7 @@ namespace PAymentForServices.BusinessLogic.Services
 
         public bool Delete(int id)
         {
-            var hirstoryPayment = _context.HistoryPayments.FirstOrDefault(hp => hp.Id == id);
+            var hirstoryPayment = _context.HistoryPayments.FirstOrDefault(hp => hp.Id == id)!;
 
             _context.HistoryPayments.Remove(hirstoryPayment);
 
@@ -54,7 +54,6 @@ namespace PAymentForServices.BusinessLogic.Services
         private bool Save() {
             return _context.SaveChanges() > 0 ? true : false;
         }
-
     }
 }
 

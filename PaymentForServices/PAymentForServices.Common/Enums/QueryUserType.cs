@@ -10,14 +10,6 @@ namespace PAymentForServices.Common.Enums
         CreatAccount,
         GetId,
         GetUser,
-
-        //GetServices,
-        //GetCategoris,
-        //GetCategoryId,
-
-        //GetHistoryPayments,
-        //SyncHistoryPayment,
-        //DeleteHistoryPayment
     }
 }
 

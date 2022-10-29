@@ -33,7 +33,7 @@ namespace PAymentForServices.Service.Services
 
         public string CreatAccount(string json)
         {
-            var registrationDto = JsonSerializer.Deserialize<RegistrationDto>(json);
+            var registrationDto = JsonSerializer.Deserialize<RegistrationDto>(json)!;
 
             var isCreated = _accountService.Sync(registrationDto);
 
@@ -44,7 +44,7 @@ namespace PAymentForServices.Service.Services
 
         public string AccountExist(string json)
         {
-            var loginDto = JsonSerializer.Deserialize<LoginDto>(json);
+            var loginDto = JsonSerializer.Deserialize<LoginDto>(json)!;
 
             var exist = _accountService.Get(loginDto);
 
@@ -55,7 +55,7 @@ namespace PAymentForServices.Service.Services
 
         public string GetId(string json)
         {
-            var login = JsonSerializer.Deserialize<string>(json);
+            var login = JsonSerializer.Deserialize<string>(json)!;
 
             var id = _accountService.GetId(login);
 

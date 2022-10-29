@@ -36,7 +36,7 @@ namespace PAymentForServices.Service.Services
 
         public string GetId(string json)
         {
-            var name = JsonSerializer.Deserialize<string>(json);
+            var name = JsonSerializer.Deserialize<string>(json)!;
 
             var id = _categoryService.GetCategoryId(name);
 

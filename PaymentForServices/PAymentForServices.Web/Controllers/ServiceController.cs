@@ -29,7 +29,7 @@ namespace PAymentForServices.Web.Controllers
 
             string json = QueryHandler<string>.Serialize("", QueryType.Category, typeAction);
 
-            string answer = NetworkHandler.Client(json);
+            string answer = NetworkHandler.ConnectionWithServ(json);
 
             var services = JsonSerializer.Deserialize<List<ServiceDto>>(answer);
 
@@ -50,7 +50,7 @@ namespace PAymentForServices.Web.Controllers
 
             string json = QueryHandler<int>.Serialize(Id, QueryType.Category,typeAction);
 
-            string answer = NetworkHandler.Client(json);
+            string answer = NetworkHandler.ConnectionWithServ(json);
 
             var categories = JsonSerializer.Deserialize<List<CategoryDto>>(answer);
 
@@ -97,7 +97,7 @@ namespace PAymentForServices.Web.Controllers
 
             string json = QueryHandler<string>.Serialize(payment.NameService, QueryType.Category, typeAction);
 
-            string answer = NetworkHandler.Client(json);
+            string answer = NetworkHandler.ConnectionWithServ(json);
 
             var categoryId = JsonSerializer.Deserialize<int>(answer);
 
@@ -113,7 +113,7 @@ namespace PAymentForServices.Web.Controllers
 
             json = QueryHandler<HistoryPaymentDto>.Serialize(history, QueryType.HistoryPayment, typeAction);
 
-            answer = NetworkHandler.Client(json);
+            answer = NetworkHandler.ConnectionWithServ(json);
 
             var isSaved = JsonSerializer.Deserialize<bool>(answer);
 

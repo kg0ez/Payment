@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Sockets;
 using AutoMapper;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,69 +9,78 @@ using PAymentForServices.BusinessLogic.Services;
 using PAymentForServices.Service;
 using PAymentForServices.Service.Services;
 
-var mapperConfiguration = new MapperConfiguration(x =>
-{
-    x.AddProfile<MappingProfile>();
-});
+RegisterServices(out IServiceProvider serviceProvider);
 
-mapperConfiguration.AssertConfigurationIsValid();
-IMapper mapper = mapperConfiguration.CreateMapper();
+var accountService = serviceProvider.GetService<IAccountService>()!;
+var methodService = serviceProvider.GetService<IMethodService>()!;
+var categoryService = serviceProvider.GetService<ICategoryService>()!;
 
-var serviceProvider = new ServiceCollection()
-            .AddLogging()
-            .AddSingleton<IAccountService, AccountService>()
-            .AddSingleton<IMethodService, MethodService>()
-            .AddSingleton<ICategoryService, CategoryService>()
-            .AddSingleton<IHistoryPaymentService, HistoryPaymentService>()
-            .AddSingleton<IUserJsonService, UserJsonService>()
-            .AddSingleton<IHistoryPaymentJsonService, HistoryPaymentJsonService>()
-            .AddSingleton<ICategoryJsonService, CategoryJsonService>()
-            .AddSingleton<ApplicationContext, ApplicationContext>()
-            .AddSingleton(mapper)
-            .BuildServiceProvider();    
+var userJsonService = serviceProvider.GetService<IUserJsonService>()!;
+var HPJsonService = serviceProvider.GetService<IHistoryPaymentJsonService>()!;
+var categoryJsonService = serviceProvider.GetService<ICategoryJsonService>()!;
 
-var accountService = serviceProvider.GetService<IAccountService>();
-var methodService = serviceProvider.GetService<IMethodService>();
-var categoryService = serviceProvider.GetService<ICategoryService>();
-
-var userJsonService = serviceProvider.GetService<IUserJsonService>();
-var HPJsonService = serviceProvider.GetService<IHistoryPaymentJsonService>();
-var categoryJsonService = serviceProvider.GetService<ICategoryJsonService>();
-
-//accountService.Sync();
 //categoryService.Sync();
-
-TcpListener listener = null;
+TcpListener? listener = default;
 
 string IP = "127.0.0.1";
 int PORT = 8080;
 
-try
+WaitingForConnection();
+
+
+void WaitingForConnection()
 {
-    listener = new TcpListener(IPAddress.Parse(IP), PORT);
-    listener.Start();
-
-    while (true)
+    try
     {
-        //Для входящих
-        TcpClient client = listener.AcceptTcpClient();
+        listener = new TcpListener(IPAddress.Parse(IP), PORT);
+        listener.Start();
 
-        ClientConnection separateCon = new ClientConnection(
-            client,
-            accountService,
-            methodService,
-            userJsonService, HPJsonService, categoryJsonService);
+        while (true)
+        {
+            //Для входящих
+            TcpClient client = listener.AcceptTcpClient();
 
-        Thread clientThread = new Thread(new ThreadStart(separateCon.Process));
-        clientThread.Start();
+            ClientConnection separateCon = new ClientConnection(
+                client,
+                accountService,
+                methodService,
+                userJsonService, HPJsonService, categoryJsonService);
+
+            Thread clientThread = new Thread(new ThreadStart(separateCon.ConnectionWithClient));
+            clientThread.Start();
+        }
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine(ex.Message);
+    }
+    finally
+    {
+        if (listener !is null)
+            listener!.Stop();
     }
 }
-catch (Exception ex)
+
+void RegisterServices(out IServiceProvider serviceProvider)
 {
-    Console.WriteLine(ex.Message);
-}
-finally
-{
-    if (listener != null)
-        listener.Stop();
+    var mapperConfiguration = new MapperConfiguration(x =>
+    {
+        x.AddProfile<MappingProfile>();
+    });
+
+    mapperConfiguration.AssertConfigurationIsValid();
+    IMapper mapper = mapperConfiguration.CreateMapper();
+
+    serviceProvider = new ServiceCollection()
+                .AddLogging()
+                .AddSingleton<IAccountService, AccountService>()
+                .AddSingleton<IMethodService, MethodService>()
+                .AddSingleton<ICategoryService, CategoryService>()
+                .AddSingleton<IHistoryPaymentService, HistoryPaymentService>()
+                .AddSingleton<IUserJsonService, UserJsonService>()
+                .AddSingleton<IHistoryPaymentJsonService, HistoryPaymentJsonService>()
+                .AddSingleton<ICategoryJsonService, CategoryJsonService>()
+                .AddSingleton<ApplicationContext, ApplicationContext>()
+                .AddSingleton(mapper)
+                .BuildServiceProvider();
 }

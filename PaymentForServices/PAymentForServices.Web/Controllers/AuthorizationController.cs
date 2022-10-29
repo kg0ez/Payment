@@ -41,7 +41,7 @@ namespace PAymentForServices.Web.Controllers
 
                 string json = QueryHandler<LoginDto>.Serialize(loginDto, QueryType.User, typeAction);
 
-                string answer = NetworkHandler.Client(json);
+                string answer = NetworkHandler.ConnectionWithServ(json);
 
                 var exist = JsonSerializer.Deserialize<bool>(answer);
 
@@ -65,7 +65,7 @@ namespace PAymentForServices.Web.Controllers
 
             string json = QueryHandler<string>.Serialize(UserLogin, QueryType.User, typeAction);
 
-            string answer = NetworkHandler.Client(json);
+            string answer = NetworkHandler.ConnectionWithServ(json);
 
             var exist = JsonSerializer.Deserialize<bool>(answer);
 
@@ -91,7 +91,7 @@ namespace PAymentForServices.Web.Controllers
 
             string json = QueryHandler<RegistrationDto>.Serialize(dto, QueryType.User, typeAction);
 
-            string answer = NetworkHandler.Client(json);
+            string answer = NetworkHandler.ConnectionWithServ(json);
 
             var exist = JsonSerializer.Deserialize<bool>(answer);
 
@@ -112,7 +112,7 @@ namespace PAymentForServices.Web.Controllers
 
             string json = QueryHandler<string>.Serialize(Email, QueryType.User, typeAction);
 
-            string answer = NetworkHandler.Client(json);
+            string answer = NetworkHandler.ConnectionWithServ(json);
 
             var exist = JsonSerializer.Deserialize<bool>(answer);
 
@@ -128,7 +128,7 @@ namespace PAymentForServices.Web.Controllers
 
             string json = QueryHandler<string>.Serialize(Phone, QueryType.User, typeAction);
 
-            string answer = NetworkHandler.Client(json);
+            string answer = NetworkHandler.ConnectionWithServ(json);
 
             var exist = JsonSerializer.Deserialize<bool>(answer);
 

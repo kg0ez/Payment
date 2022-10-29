@@ -18,7 +18,6 @@ namespace PAymentForServices.BusinessLogic.Services
             _mapper = mapper;
         }
 
-
         public List<ServiceDto> GetServices()
         {
             var services = _context.Services
@@ -46,9 +45,6 @@ namespace PAymentForServices.BusinessLogic.Services
         {
             return _context.Categories.FirstOrDefault(c => c.Name == name)!.Id;
         }
-
-
-
 
         public void Sync()
         {

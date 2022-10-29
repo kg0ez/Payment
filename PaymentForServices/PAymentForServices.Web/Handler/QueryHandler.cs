@@ -32,7 +32,7 @@ namespace PAymentForServices.Web.Handler
 
             var json = Serialize(login, QueryType.User, typeAction);
 
-            string answer = NetworkHandler.Client(json);
+            string answer = NetworkHandler.ConnectionWithServ(json);
 
             var id = JsonSerializer.Deserialize<int>(answer);
 
@@ -45,9 +45,9 @@ namespace PAymentForServices.Web.Handler
 
             var json = Serialize(id, QueryType.User, typeAction);
 
-            var answer = NetworkHandler.Client(json);
+            var answer = NetworkHandler.ConnectionWithServ(json);
 
-            var user = JsonSerializer.Deserialize<UserDto>(answer);
+            var user = JsonSerializer.Deserialize<UserDto>(answer)!;
 
             return user;
         }
