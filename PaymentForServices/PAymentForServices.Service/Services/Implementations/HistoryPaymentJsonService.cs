@@ -47,6 +47,16 @@ namespace PAymentForServices.Service.Services
 
             return response;
         }
+        public string AutoPaymentSync(string json)
+        {
+            var autoPayment = JsonSerializer.Deserialize<AutoPaymentDto>(json);
+
+            var result = _historyPayment.AutoPaymentSync(autoPayment);
+
+            var response = JsonSerializer.Serialize<bool>(result);
+
+            return response;
+        }
     }
 }
 

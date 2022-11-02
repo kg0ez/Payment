@@ -68,12 +68,15 @@ namespace PAymentForServices.Service.Services
         {
             if (query == QueryHistoryPaymentType.GetHistoryPayments)
                 return _hpJsonService.Get(obj);
-            
+
             else if (query == QueryHistoryPaymentType.SyncHistoryPayment)
                 return _hpJsonService.Sync(obj);
-            
+
             else if (query == QueryHistoryPaymentType.DeleteHistoryPayment)
                 return _hpJsonService.Delete(obj);
+
+            else if (query == QueryHistoryPaymentType.AutoPaymentSyncHistoryPayment)
+                return _hpJsonService.AutoPaymentSync(obj);
 
             throw new Exception("History payment method wasn`t found");
         }

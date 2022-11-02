@@ -13,7 +13,42 @@
             <div class="main-block__container _container">
                 <div class="main-block__body">
                     <div class="main-block__body-left">
-                        <h1 class="main-block__title">Платежи ЕРИП</h1>
+                        @if (Model[0].NameImg == "Folder.png")
+                        {
+                            <h6 class="main-block__title">Оплата услуг</h6>
+
+                            <h1 class="main-block__subtitle">Популярные платежи</h1>
+                            <div class="popular__continue">
+
+                                <form class="main-block__form" asp-action="Category" asp-controller="Service">
+                                    <input class="pupular__form-submit popular_mts" type="submit" value=" " />
+                                    <input name="category" value="МТС по № телефона" hidden="hidden" />
+                                </form>
+                                <form class="main-block__form" asp-action="Category" asp-controller="Service">
+                                    <input class="pupular__form-submit popular_a1" type="submit" value=" " />
+                                    <input name="category" value="А1 по № телефона" hidden="hidden" />
+                                </form>
+                                <form class="main-block__form" asp-action="Category" asp-controller="Service">
+                                    <input class="pupular__form-submit popular_belavia" type="submit" value=" " />
+                                    <input name="category" value="Билеты Белавиа, ЖД" hidden="hidden" />
+                                </form>
+                                <form class="main-block__form" asp-action="Category" asp-controller="Service">
+                                    <input class="pupular__form-submit popular_бч" type="submit" value=" " />
+                                    <input name="category" value="Билеты Белавиа, ЖД" hidden="hidden" />
+                                </form>
+                                <form class="main-block__form" asp-action="Category" asp-controller="Service">
+                                    <input class="pupular__form-submit popular_гаи" type="submit" value=" " />
+                                    <input name="category" value="ГАИ - штрафы" hidden="hidden" />
+                                </form>
+                            </div>
+
+                            <h1 class="main-block__subtitle">Автоплатежи</h1>
+                            <form class="main-block__form" asp-action="AutoPayment" asp-controller="Service">
+                                <img class="main-block__form-mtc-img" src="~/img/Payment/МТС.png" alt="мтс" />
+                                <input class="main-block__form-submit" type="submit" value="Автооплата МТС" />
+                            </form>
+                        }
+                        <h1 class="main-block__subtitle"> Платежи ЕРИП</h1>
                         @foreach (var service in Model)
                         {
                             {
@@ -35,7 +70,6 @@
 
                                 }
                             }
-
                         }
                         @if (Model[0].NameImg != "Folder.png")
                         {

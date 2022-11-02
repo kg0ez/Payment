@@ -46,6 +46,9 @@ namespace PAymentForServices.Web.Controllers
             if (Id==0 && UserAccount.ServiceId !=0)
                 Id = UserAccount.ServiceId;
 
+            else if (Id == 0 && UserAccount.ServiceId == 0)
+                return RedirectToActionPermanent("Services", "Service");
+
             var typeAction = QueryHandler<QueryCategoryType>.QueryTypeSerialize(QueryCategoryType.GetCategoris);
 
             string json = QueryHandler<int>.Serialize(Id, QueryType.Category,typeAction);
@@ -90,9 +93,6 @@ namespace PAymentForServices.Web.Controllers
         [HttpPost]
         public IActionResult Payment(Payment payment)
         {
-            if (!ModelState.IsValid)
-                return View(payment);
-
             var typeAction = QueryHandler<QueryCategoryType>.QueryTypeSerialize(QueryCategoryType.GetCategoryId);
 
             string json = QueryHandler<string>.Serialize(payment.NameService, QueryType.Category, typeAction);
@@ -105,7 +105,7 @@ namespace PAymentForServices.Web.Controllers
             {
                 CategoryId = categoryId,
                 UserId = Models.UserAccount.Id,
-                PaymentAmount = payment.PaymentAmount,
+                PaymentAmount = Convert.ToDecimal(payment.PaymentAmount.Replace('.',',')),
                 CodeTransaction = payment.CodeTransaction
             };
 
@@ -121,6 +121,30 @@ namespace PAymentForServices.Web.Controllers
                 return RedirectPermanent("~/Service/Services");
 
             return View(payment);
+        }
+
+        public IActionResult AutoPayment()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AutoPayment(Web.Models.AutoPayment autoPayment)
+        {
+            if (autoPayment.Phone is null)
+                return View();
+
+            var autoPaymentDto = _mapper.Map<AutoPaymentDto>(autoPayment);
+            string typeAction = QueryHandler<QueryHistoryPaymentType>.QueryTypeSerialize(QueryHistoryPaymentType.AutoPaymentSyncHistoryPayment);
+
+            string json = QueryHandler<AutoPaymentDto>.Serialize(autoPaymentDto, QueryType.HistoryPayment, typeAction);
+
+            string answer = NetworkHandler.ConnectionWithServ(json);
+            var isSaved = JsonSerializer.Deserialize<bool>(answer);
+
+            if (isSaved)
+                return RedirectPermanent("~/Service/Services");
+            return View();
         }
     }
 }

@@ -36,7 +36,7 @@
                             </div>
                             <div class="form__block">
                                 <label class="form__label" asp-for="PaymentAmount">Сумма:</label><br />
-                                <input class="form__input" type="number" value="@Model.PaymentAmount" placeholder="Сумма для оплаты" asp-for="PaymentAmount" />
+                                <input class="form__input" value="@Model.PaymentAmount" placeholder="Сумма для оплаты" asp-for="PaymentAmount" />
                                 <span asp-validation-for="PaymentAmount" />
                             </div>
                             <input class="form__input" value="@Model.NameService" asp-for="NameService" hidden="hidden" />

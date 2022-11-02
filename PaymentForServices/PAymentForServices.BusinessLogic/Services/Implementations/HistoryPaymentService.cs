@@ -50,6 +50,20 @@ namespace PAymentForServices.BusinessLogic.Services
 
             return Save();
         }
+        public bool AutoPaymentSync(AutoPaymentDto autoPaymentDto)
+        {
+            var autoPayment = new AutoPayment
+            {
+                PaymentAmount = autoPaymentDto.PaymentAmount,
+                Phone = autoPaymentDto.Phone,
+                PhoneNotification = autoPaymentDto.PhoneNotification,
+                ThresholdAmount = autoPaymentDto.ThresholdAmount,
+                UserId = autoPaymentDto.UserId
+            };
+
+            _context.AutoPayments.Add(autoPayment);
+            return Save();
+        }
 
         private bool Save() {
             return _context.SaveChanges() > 0 ? true : false;

@@ -1,21 +1,21 @@
 ﻿using System;
+
 namespace PaymentForServices.Models.Models
 {
-    public class HistoryPayment
+    public class AutoPayment
     {
         public int Id { get; set; }
 
+        public string Phone { get; set; }
+
         public decimal PaymentAmount { get; set; }
 
-        public string CodeTransaction { get; set; } = null!;
+        public decimal ThresholdAmount { get; set; }
 
-        public DateTime CreatAt { get; set; }
+        public string PhoneNotification { get; set; }
 
         public int UserId { get; set; }
         public User User { get; set; }
-
-        public int CategoryId { get; set; }
-        public Category Category { get; set; }
     }
 }
 

@@ -25,7 +25,7 @@ namespace PAymentForServices.Web.Models
 
         [Required(ErrorMessage = "Поле должно быть установлено")]
         [Range(1,999999, ErrorMessage = "Недопустимая сумма")]
-        public int PaymentAmount { get; set; }
+        public string PaymentAmount { get; set; }
 
         public DateTime CreateAt { get; set; } = DateTime.Now;
     }

@@ -6,7 +6,7 @@ namespace PAymentForServices.Common.ModelsDto
         public int Id { get; set; }
         public DateTime CreatAt { get; set; } = DateTime.Now;
 
-        public int PaymentAmount { get; set; }
+        public decimal PaymentAmount { get; set; }
 
         public string CodeTransaction { get; set; }
 

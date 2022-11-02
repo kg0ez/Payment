@@ -15,7 +15,10 @@ namespace PAymentForServices.Web.Mapper
                 .ForMember("NameImg", opt => opt.MapFrom(opt => "Folder.png"));
             CreateMap<CategoryDto, TypeService>()
                 .ForMember("NameImg", opt => opt.MapFrom(opt => "money.png"));
-
+            CreateMap<AutoPayment, AutoPaymentDto>()
+                .ForMember("PaymentAmount", opt=>opt.MapFrom(opt=>Convert.ToDecimal(opt.PaymentAmount.Replace('.',','))))
+                .ForMember("ThresholdAmount", opt=>opt.MapFrom(opt=>Convert.ToDecimal(opt.ThresholdAmount.Replace('.', ','))))
+                .ForMember("UserId", opt=>opt.MapFrom(opt=>UserAccount.Id));
         }
     }
 }

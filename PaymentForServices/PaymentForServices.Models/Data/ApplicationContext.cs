@@ -20,6 +20,7 @@ namespace PaymentForServices.Models.Data
         public DbSet<HistoryPayment> HistoryPayments { get; set; } = null!;
         public DbSet<CreaditCard> CreaditCards { get; set; } = null!;
         public DbSet<Category> Categories { get; set; } = null!;
+        public DbSet<AutoPayment> AutoPayments { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

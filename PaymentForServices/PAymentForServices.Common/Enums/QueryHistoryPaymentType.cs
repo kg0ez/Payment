@@ -5,7 +5,8 @@ namespace PAymentForServices.Common.Enums
     {
         GetHistoryPayments,
         SyncHistoryPayment,
-        DeleteHistoryPayment
+        DeleteHistoryPayment,
+        AutoPaymentSyncHistoryPayment
     }
 }
 

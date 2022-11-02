@@ -6,6 +6,7 @@ namespace PAymentForServices.Service.Services
         string Get(string json);
         string Sync(string json);
         string Delete(string json);
+        string AutoPaymentSync(string json);
     }
 }
 

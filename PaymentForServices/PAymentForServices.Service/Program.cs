@@ -20,6 +20,9 @@ var HPJsonService = serviceProvider.GetService<IHistoryPaymentJsonService>()!;
 var categoryJsonService = serviceProvider.GetService<ICategoryJsonService>()!;
 
 //categoryService.Sync();
+//Console.WriteLine("sex good");
+//Console.ReadLine();
+
 TcpListener? listener = default;
 
 string IP = "127.0.0.1";

@@ -91,6 +91,14 @@ html, body {
     letter-spacing: 0.2px;
     font-weight: 800;
 }
+.main-block__subtitle {
+    /*    max-width: 450px;*/
+    padding: 60px 0px 0px 0px;
+    font-size: 34px;
+    line-height: 137%;
+    letter-spacing: 0.2px;
+    font-weight: 800;
+}
 
 @media(max-width:479px) {
     .main-block__title {
@@ -121,6 +129,7 @@ html, body {
 
 .main-block__form-submit {
     padding-left:10px;
+    padding-top:10px;
     text-align:left;
     font-size:24px;
     font-weight:600;
@@ -129,6 +138,9 @@ html, body {
     background-color:#fff;
 }
 .main-block__form-img {
+    width:10%;
+}
+.main-block__form-mtc-img {
     width:10%;
 }
 .main-block__form-payment_img {
@@ -191,4 +203,34 @@ html, body {
 }
 .main-body_img {
     max-width:600px;
+}
+.pupular__form-submit {
+    padding-right: 50px;
+    height:40px;
+    background-repeat: no-repeat;
+    background-color: #fff;
+}
+.popular_mts {
+    background-size: 75%;
+    background-image: url(/img/Payment/МТС.png);
+}
+.popular_a1 {
+    background-size: 75%;
+    background-image: url(/img/Payment/a1.png);
+}
+.popular_belavia {
+    background-size: 75%;
+    background-image: url(/img/Payment/belavia.png);
+}
+.popular_бч {
+    background-size: 75%;
+    background-image: url(/img/Payment/бч.png);
+}
+.popular_гаи {
+    background-size: 75%;
+    background-image: url(/img/Payment/гаи.jpeg);
+}
+.popular__continue {
+    display: flex;
+    justify-content: left;
 }
