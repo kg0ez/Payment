@@ -27,27 +27,6 @@ namespace PAymentForServices.BusinessLogic.Services
             return _context.Users.Any(u => u.Phone == phone);
         }
 
-        //public void Sync()
-        //{
-        //    User user1 = new User
-        //    {
-        //        Name = "kirill",
-        //        LastName = "Bovbel",
-        //        Phone = "+375336600928",
-        //        Email = "gorboveckirill@gmail.com",
-        //        Partonymic = "Alex",
-        //        Password = "1234567",
-        //        CreaditCard = new CreaditCard
-        //        {
-        //            CVV = 111,
-        //            Date = "01/23",
-        //            Number = 325453434
-        //        }
-        //    };
-        //    _context.Users.Add(user1);
-        //    _context.SaveChanges();
-        //}
-
         public bool Sync(RegistrationDto registrationDto)
         {
             var user = _mapper.Map<User>(registrationDto);

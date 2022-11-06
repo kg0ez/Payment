@@ -2,6 +2,7 @@
 using System.Net;
 using System.Net.Sockets;
 using AutoMapper;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
 using PaymentForServices.Models.Data;
 using PAymentForServices.BusinessLogic.Helper.Mapper;
@@ -85,5 +86,6 @@ void RegisterServices(out IServiceProvider serviceProvider)
                 .AddSingleton<ICategoryJsonService, CategoryJsonService>()
                 .AddSingleton<ApplicationContext, ApplicationContext>()
                 .AddSingleton(mapper)
+                .AddMemoryCache()
                 .BuildServiceProvider();
 }

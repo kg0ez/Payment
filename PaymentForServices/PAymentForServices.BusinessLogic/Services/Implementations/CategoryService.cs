@@ -1,6 +1,7 @@
 ﻿using System;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using PaymentForServices.Models.Data;
 using PaymentForServices.Models.Models;
 using PAymentForServices.Common.ModelsDto;
@@ -11,11 +12,17 @@ namespace PAymentForServices.BusinessLogic.Services
     {
         private readonly ApplicationContext _context;
         private readonly IMapper _mapper;
+        private readonly IMemoryCache _memoryCache;
 
-        public CategoryService(IMapper mapper, ApplicationContext context)
+        public CategoryService(
+            IMapper mapper,
+            ApplicationContext context,
+            IMemoryCache memoryCache
+            )
         {
             _context = context;
             _mapper = mapper;
+            _memoryCache = memoryCache;
         }
 
         public List<ServiceDto> GetServices()
@@ -25,8 +32,14 @@ namespace PAymentForServices.BusinessLogic.Services
                 .ToList();
 
             var servicesDto = _mapper.Map<List<ServiceDto>>(services);
-
-            return servicesDto;
+            int key = 1;
+            return _memoryCache.GetOrCreate(
+                key,
+                entry =>
+                {
+                    entry.SetAbsoluteExpiration(TimeSpan.FromMinutes(2));
+                    return servicesDto;
+                });
         }
 
         public List<CategoryDto> GetCategories(int id)
